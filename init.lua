@@ -37,4 +37,13 @@ return require('packer').startup(function()
       require"surround".setup {mappings_style = "surround"}
     end
   }
+  use({
+    'ggandor/leap.nvim',
+    config = function()
+      require('leap').set_default_keymaps()
+    end
+  }) 
+  use 'DanilaMihailov/beacon.nvim'
+  use 'lewis6991/impatient.nvim'
+--  use 'justinmk/vim-sneak'
 end)
