@@ -34,7 +34,14 @@ require("better_escape").setup {
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use {'neoclide/coc.nvim', branch = 'release'}
-  use 'folke/tokyonight.nvim'
+  -- use 'folke/tokyonight.nvim'
+  use({ "sainnhe/sonokai", config = function ()
+		
+		vim.g.sonokai_better_performance = 1
+		vim.g.sonokai_style = "default"
+
+		vim.cmd("colorscheme sonokai")
+	end })
   use 'nvim-treesitter/nvim-treesitter' 
   use 'tpope/vim-commentary'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
