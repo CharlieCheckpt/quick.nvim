@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.o.number  =true
+vim.o.number  = true
 vim.o.relativenumber = true
 vim.o.wrap = false
 vim.o.expandtab = true
@@ -40,6 +40,13 @@ vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {noremap = true, silent = t
 -- vim.g["netrw_banner"] = 0
 -- vim.g["netrw_liststyle"] = 3
 -- vim.g["netrw_winsize"] = 25
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
 
 vim.cmd([[
   hi ActiveWindow guibg=#1B1B26
