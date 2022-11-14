@@ -21,6 +21,7 @@ vim.o.showmode = false
 vim.o.showtabline = 2
 vim.o.signcolumn = 'yes'
 vim.o.mouse = 'a'
+vim.o.laststatus = 0  -- remove status line
 
 vim.api.nvim_set_keymap('n', 'vs', ':vs<CR>', { noremap = true })
 -- vim.api.nvim_set_keymap('n', 'sp', ':sp<CR>', { noremap = true })
@@ -37,6 +38,7 @@ vim.api.nvim_set_keymap("n", "<leader>t", ":sp<CR> :term<CR> :resize 20N<CR> i",
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {noremap = true, silent = true})
 -- vim.api.nvim_set_keymap('n', '<C-N>', ":Lexplore<CR> :vertical resize 30<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>w", ":w!<cr>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("v", "<leader>p", '"_dp', { noremap = true})
 
 -- vim.g["netrw_banner"] = 0
 -- vim.g["netrw_liststyle"] = 3
