@@ -51,19 +51,26 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
+-- vim.cmd([[
+--   hi ActiveWindow guibg=#1B1B26
+--   hi InactiveWindow guibg=#2d2d3b
 
-vim.cmd([[
-  hi ActiveWindow guibg=#1B1B26
-  hi InactiveWindow guibg=#2d2d3b
+--   augroup WindowManagement
+--     autocmd!
+--     autocmd WinEnter * call Handle_Win_Enter()
+--   augroup END
 
-  augroup WindowManagement
-    autocmd!
-    autocmd WinEnter * call Handle_Win_Enter()
-  augroup END
+--   function! Handle_Win_Enter()
+--     setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
+--     highlight SignColumn guibg=Normal:ActiveWindow,NormalNC:InactiveWindow
+--   endfunction
+-- ]])
 
-  function! Handle_Win_Enter()
-    setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
-    highlight SignColumn guibg=Normal:ActiveWindow,NormalNC:InactiveWindow
-  endfunction
-]])
+-- nvim-tree setup
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+require("nvim-tree").setup()
+vim.api.nvim_set_keymap('n', '<C-N>', ":NvimTreeToggle<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<C-N>', ":NvimTreeClose<CR>", { noremap = true })
+
 
