@@ -4,8 +4,12 @@
 -- vim.o.background = 'dark'
 -- vim.cmd([[colorscheme oh-lucy]])
 -- sonokai options : the options should be put before colorscheme sonokai 
+
+-- Sonokai
 vim.g.sonokai_style = 'andromeda'
 vim.g.sonokai_better_performance = 1
 -- vim.g.sonokai_enable_italic = 1
--- vim.o.background = 'dark'
 vim.cmd([[colorscheme sonokai]])
+
+--oxocarbon
+-- vim.cmd([[colorscheme oxocarbon-lua]])

@@ -37,6 +37,7 @@ return require('packer').startup(function()
   -- use 'folke/tokyonight.nvim'
   -- use 'Yazeed1s/oh-lucy.nvim'
   use 'sainnhe/sonokai'
+  -- use 'B4mbus/oxocarbon-lua.nvim'
   use 'nvim-treesitter/nvim-treesitter' 
   use 'tpope/vim-commentary'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
