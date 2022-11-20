@@ -38,6 +38,7 @@ vim.api.nvim_set_keymap("n", "<leader>t", ":sp<CR> :term<CR> :resize 20N<CR> i",
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {noremap = true, silent = true})
 -- vim.api.nvim_set_keymap('n', '<C-N>', ":Lexplore<CR> :vertical resize 30<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>w", ":w!<cr>", {noremap = true, silent = true})
+--replace current selection with what is in the registry
 vim.api.nvim_set_keymap("v", "<leader>p", '"_dp', { noremap = true})
 
 -- vim.g["netrw_banner"] = 0
@@ -50,6 +51,7 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>rg', builtin.registers, {})
 
 -- nvim-tree setup
 vim.g.loaded_netrw = 1
@@ -62,3 +64,13 @@ vim.api.nvim_set_keymap('n', '<leader>n', ":NvimTreeFindFile<CR>", { noremap = t
 -- leap keymaps
 require('leap').set_default_keymaps()
 
+-- Highlight on Yank 
+-- taken from https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
