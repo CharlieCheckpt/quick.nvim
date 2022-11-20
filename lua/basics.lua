@@ -45,6 +45,12 @@ vim.api.nvim_set_keymap("v", "<leader>p", '"_dp', { noremap = true})
 -- vim.g["netrw_liststyle"] = 3
 -- vim.g["netrw_winsize"] = 25
 
+-- Resize with arrows
+vim.keymap.set("n", "<Up>", ":resize -2<CR>" )
+vim.keymap.set("n", "<Down>", ":resize +2<CR>" )
+vim.keymap.set("n", "<Right>", ":vertical resize -2<CR>" )
+vim.keymap.set("n", "<Left>", ":vertical resize +2<CR>" )
+
 -- telescope keymaps
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
