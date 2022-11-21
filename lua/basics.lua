@@ -50,6 +50,8 @@ vim.keymap.set("n", "<Up>", ":resize -2<CR>" )
 vim.keymap.set("n", "<Down>", ":resize +2<CR>" )
 vim.keymap.set("n", "<Right>", ":vertical resize -2<CR>" )
 vim.keymap.set("n", "<Left>", ":vertical resize +2<CR>" )
+vim.keymap.set("n", "<S-Right>", ":vertical resize -60<CR>" )
+vim.keymap.set("n", "<S-Left>", ":vertical resize +60<CR>" )
 
 -- telescope keymaps
 local builtin = require('telescope.builtin')
