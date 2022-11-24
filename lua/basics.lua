@@ -22,6 +22,7 @@ vim.o.showtabline = 2
 vim.o.signcolumn = 'yes'
 vim.o.mouse = 'a'
 vim.o.laststatus = 0  -- remove status line
+vim.o.autoindent = true
 
 vim.api.nvim_set_keymap('n', 'vs', ':vs<CR>', { noremap = true })
 -- vim.api.nvim_set_keymap('n', 'sp', ':sp<CR>', { noremap = true })
@@ -34,7 +35,7 @@ vim.api.nvim_set_keymap('n', 'tk', ':tabnext<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', 'tj', ':tabprev<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', 'to', ':tabo<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-S>', ':%s/', { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>t", ":sp<CR> :term<CR> :resize 20N<CR> i", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>te", ":sp<CR> :term<CR> :resize 20N<CR> i", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {noremap = true, silent = true})
 -- vim.api.nvim_set_keymap('n', '<C-N>', ":Lexplore<CR> :vertical resize 30<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>w", ":w!<cr>", {noremap = true, silent = true})
@@ -52,6 +53,12 @@ vim.keymap.set("n", "<Right>", ":vertical resize -2<CR>" )
 vim.keymap.set("n", "<Left>", ":vertical resize +2<CR>" )
 vim.keymap.set("n", "<S-Right>", ":vertical resize -60<CR>" )
 vim.keymap.set("n", "<S-Left>", ":vertical resize +60<CR>" )
+
+-- windows management : problem leader t is taken to open terminal
+vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
+vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
+vim.keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
+vim.keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
 -- telescope keymaps
 local builtin = require('telescope.builtin')
