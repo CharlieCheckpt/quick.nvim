@@ -1,31 +1,9 @@
 require('basics')
 require('colors')
-require('telescope-config')
-require('coc-config')
-
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "python",
-  ignore_install = { "phpdoc" },
-  context_commentstring = {
-    enable = true
-  },
-  highlight = {
-    enable = true,
-    disable = { "lua" }
-  },
-  indent = {
-    enable = true
-  },
-  incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = '<CR>',
-        scope_incremental = '<CR>',
-        node_incremental = '<TAB>',
-        node_decremental = '<S-TAB>',
-    },
-  }
-}
+require('config/telescope')
+require('config/fugitive')
+require('config/coc')
+require('config/nvimtree')
 
 -- lua, default settings
 require("better_escape").setup {
@@ -38,6 +16,10 @@ require("better_escape").setup {
     --   return vim.api.nvim_win_get_cursor(0)[2] > 1 and '<esc>l' or '<esc>'
     -- end,
 }
+
+-- command line completion
+local wilder = require('wilder')
+wilder.setup({modes = {':', '/', '?'}})
 
 
 return require('packer').startup(function()
@@ -75,5 +57,11 @@ return require('packer').startup(function()
     -- },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
---  use 'justinmk/vim-sneak'
+  use {
+    'gelguy/wilder.nvim',
+    config = function()
+      -- config goes here
+    end,
+  }
+  use { "tpope/vim-fugitive", config = [[require('lua.config.fugitive')]] }
 end)

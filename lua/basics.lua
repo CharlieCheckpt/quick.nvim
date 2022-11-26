@@ -16,7 +16,7 @@ vim.o.errorbells = false
 vim.o.shiftwidth = 2
 vim.o.numberwidth = 4
 vim.o.termguicolors = true
-vim.o.colorcolumn = '80'
+vim.o.colorcolumn = '100'
 vim.o.showmode = false
 vim.o.showtabline = 2
 vim.o.signcolumn = 'yes'
@@ -42,10 +42,6 @@ vim.api.nvim_set_keymap("n", "<leader>w", ":w!<cr>", {noremap = true, silent = t
 --replace current selection with what is in the registry
 vim.api.nvim_set_keymap("v", "<leader>p", '"_dp', { noremap = true})
 
--- vim.g["netrw_banner"] = 0
--- vim.g["netrw_liststyle"] = 3
--- vim.g["netrw_winsize"] = 25
-
 -- Resize with arrows
 vim.keymap.set("n", "<Up>", ":resize -2<CR>" )
 vim.keymap.set("n", "<Down>", ":resize +2<CR>" )
@@ -54,27 +50,11 @@ vim.keymap.set("n", "<Left>", ":vertical resize +2<CR>" )
 vim.keymap.set("n", "<S-Right>", ":vertical resize -60<CR>" )
 vim.keymap.set("n", "<S-Left>", ":vertical resize +60<CR>" )
 
--- windows management : problem leader t is taken to open terminal
+-- windows management
 vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
-
--- telescope keymaps
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>rg', builtin.registers, {})
-
--- nvim-tree setup
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-require("nvim-tree").setup()
-vim.api.nvim_set_keymap('n', '<C-N>', ":NvimTreeToggle<CR>", { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>n', ":NvimTreeFindFile<CR>", { noremap = true })
--- vim.api.nvim_set_keymap('n', '<C-N>', ":NvimTreeClose<CR>", { noremap = true })
 
 -- leap keymaps
 require('leap').set_default_keymaps()
