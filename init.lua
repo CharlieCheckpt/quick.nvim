@@ -3,27 +3,18 @@ require('colors')
 require('config/telescope')
 require('config/fugitive')
 require('config/coc')
-require('config/nvimtree')
+require('config/nvim_treesitter')
+require('config/better_escape')
 
--- lua, default settings
-require("better_escape").setup {
-    mapping = {"jk", "jj"}, -- a table with mappings to use
-    timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
-    clear_empty_lines = false, -- clear line after escaping if there is only whitespace
-    keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
-    -- example(recommended)
-    -- keys = function()
-    --   return vim.api.nvim_win_get_cursor(0)[2] > 1 and '<esc>l' or '<esc>'
-    -- end,
-}
 
 -- command line completion
 local wilder = require('wilder')
 wilder.setup({modes = {':', '/', '?'}})
 
-
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
+  -- faster neovim startup : it is recommended to put impatient.nvim before any other plugins
+  use 'lewis6991/impatient.nvim'
   use {'neoclide/coc.nvim', branch = 'release'}
   -- use 'folke/tokyonight.nvim'
   -- use 'Yazeed1s/oh-lucy.nvim'
@@ -45,11 +36,12 @@ return require('packer').startup(function()
       require("better_escape").setup()
     end,
   }
+  -- easy motion with s
   use({
     'ggandor/leap.nvim',
   }) 
   use 'DanilaMihailov/beacon.nvim'
-  use 'lewis6991/impatient.nvim'
+  -- file explorer
   use {
     'nvim-tree/nvim-tree.lua',
     -- requires = {
@@ -57,11 +49,10 @@ return require('packer').startup(function()
     -- },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
+  -- command line completion 
   use {
     'gelguy/wilder.nvim',
-    config = function()
-      -- config goes here
-    end,
   }
+  -- git integration
   use { "tpope/vim-fugitive", config = [[require('lua.config.fugitive')]] }
 end)
