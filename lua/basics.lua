@@ -23,6 +23,10 @@ vim.o.signcolumn = 'yes'
 vim.o.mouse = 'a'
 vim.o.laststatus = 0  -- remove status line
 vim.o.autoindent = true
+vim.o.hidden = true
+vim.o.backup = false
+vim.o.writebackup = false
+vim.o.updatetime = 300
 
 vim.api.nvim_set_keymap('n', 'vs', ':vs<CR>', { noremap = true })
 -- vim.api.nvim_set_keymap('n', 'sp', ':sp<CR>', { noremap = true })
