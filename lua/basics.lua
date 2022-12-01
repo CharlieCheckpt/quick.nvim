@@ -43,8 +43,11 @@ vim.api.nvim_set_keymap("n", "<leader>te", ":sp<CR> :term<CR> :resize 20N<CR> i"
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {noremap = true, silent = true})
 -- vim.api.nvim_set_keymap('n', '<C-N>', ":Lexplore<CR> :vertical resize 30<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>w", ":w!<cr>", {noremap = true, silent = true})
---replace current selection with what is in the registry
-vim.api.nvim_set_keymap("v", "<leader>p", '"_dp', { noremap = true})
+-- Replace current selection with what is in the registry
+vim.api.nvim_set_keymap("v", "<leader>p", '"_dp', { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>y", "'+y", { noremap = true })
+-- vim.api.nvim_set_keymap("v", "<leader>y", "'+y", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>Y", "'+Y", { noremap = true })
 
 -- Resize with arrows
 vim.keymap.set("n", "<Up>", ":resize -2<CR>" )
