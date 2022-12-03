@@ -48,6 +48,10 @@ vim.api.nvim_set_keymap("v", "<leader>p", '"_dp', { noremap = true })
 -- vim.api.nvim_set_keymap("n", "<leader>y", "'+y", { noremap = true })
 -- vim.api.nvim_set_keymap("v", "<leader>y", "'+y", { noremap = true })
 -- vim.api.nvim_set_keymap("n", "<leader>Y", "'+Y", { noremap = true })
+-- from the primeagen video : go up/down and center to not be distracted
+vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true }) --  go to previous tab
+vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true }) --  go to previous tab
+
 
 -- Resize with arrows
 vim.keymap.set("n", "<Up>", ":resize -2<CR>" )
@@ -62,6 +66,7 @@ vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
+
 
 -- leap keymaps
 require('leap').set_default_keymaps()
