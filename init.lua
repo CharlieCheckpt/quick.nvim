@@ -3,7 +3,7 @@ require('colors')
 require('config/telescope')
 require('config/fugitive')
 require('config/coc')
-require('config/nvim_treesitter')
+require('config/treesitter')
 require('config/better_escape')
 
 
@@ -22,6 +22,7 @@ return require('packer').startup(function()
   -- use 'B4mbus/oxocarbon-lua.nvim'
   use 'nvim-treesitter/nvim-treesitter' 
   use 'nvim-treesitter/nvim-treesitter-context'
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'tpope/vim-commentary'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'lukas-reineke/indent-blankline.nvim'
