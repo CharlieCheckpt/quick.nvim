@@ -51,6 +51,8 @@ vim.api.nvim_set_keymap("v", "<leader>p", '"_dp', { noremap = true })
 -- from the primeagen video : go up/down and center to not be distracted
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true }) --  go to previous tab
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true }) --  go to previous tab
+-- Quit all opened buffers
+vim.api.nvim_set_keymap("n", "<leader>Q", "<cmd>qa!<cr>", { silent = true, desc = "quit nvim" })
 
 
 -- Resize with arrows
