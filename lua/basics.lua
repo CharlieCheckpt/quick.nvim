@@ -12,7 +12,8 @@ vim.o.hlsearch = false
 vim.o.swapfile = false
 vim.o.splitbelow = true
 vim.o.splitright = true
-vim.o.scrolloff = 3
+vim.o.scrolloff = 3  -- vertical centering
+vim.o.sidescrolloff = 3  -- horizontal centering (https://unix.stackexchange.com/a/678286)
 vim.o.errorbells = false
 vim.o.shiftwidth = 2
 vim.o.numberwidth = 4
@@ -51,11 +52,23 @@ vim.api.nvim_set_keymap("v", "<leader>p", '"_dp', { noremap = true })
 -- vim.api.nvim_set_keymap("n", "<leader>y", "'+y", { noremap = true })
 -- vim.api.nvim_set_keymap("v", "<leader>y", "'+y", { noremap = true })
 -- vim.api.nvim_set_keymap("n", "<leader>Y", "'+Y", { noremap = true })
+
 -- from the primeagen video : go up/down and center to not be distracted
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true }) --  go to previous tab
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true }) --  go to previous tab
+
 -- Quit all opened buffers
 vim.api.nvim_set_keymap("n", "<leader>Q", "<cmd>qa!<cr>", { silent = true, desc = "quit nvim" })
+
+-- Keep visual mode indenting
+vim.keymap.set("v", "<", "<gv", silent)
+vim.keymap.set("v", ">", ">gv", silent)
+
+-- Don't yank on delete char
+vim.keymap.set("n", "x", '"_x', silent)
+vim.keymap.set("n", "X", '"_X', silent)
+vim.keymap.set("v", "x", '"_x', silent)
+vim.keymap.set("v", "X", '"_X', silent)
 
 
 -- Resize with arrows
@@ -86,3 +99,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+-- CHARLIE: win bar with full file path ? not working right now ...
+-- vim.o.winbar = "%{%v:lua.require'nvim.lua.config.winbar'.eval()%}"
