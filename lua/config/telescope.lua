@@ -34,11 +34,12 @@ vim.api.nvim_set_keymap('n', '<C-B>', "<cmd>lua require('telescope.builtin').buf
 
 
 local builtin = require('telescope.builtin')
-keymap.set('n', '<leader>ff', builtin.find_files, {})
-keymap.set('n', '<leader>fg', builtin.live_grep, {})
-keymap.set('n', '<leader>fb', builtin.buffers, {})
+keymap.set('n', '<leader>ff', builtin.find_files, {})  -- Lists files in your current working directory, respects .gitignore
+keymap.set('n', '<leader>fg', builtin.live_grep, {})  -- Search for a string in your current working directory and get results live as you type, respects .gitignore
+keymap.set('n', '<leader>fs', builtin.grep_string, {})  -- Searches for the string under your cursor in your current working directory
+keymap.set('n', '<leader>fb', builtin.buffers, {})  -- Lists open buffers in current neovim instance
 keymap.set('n', '<leader>fh', builtin.help_tags, {})
-keymap.set('n', '<leader>rg', builtin.registers, {})
+keymap.set('n', '<leader>fr', builtin.registers, {})  -- Lists vim registers, pastes the contents of the register on <cr>
 
 -- telescope git commands
 -- vim.api.nvim_set_keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", { noremap = true }) -- list all git commits (use <cr> to checkout) ["gc" for git commits]
