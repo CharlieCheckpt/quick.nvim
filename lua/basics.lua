@@ -7,6 +7,7 @@ vim.o.incsearch = true
 vim.o.tabstop = 2
 vim.o.cursorline = true
 vim.o.ignorecase = true
+vim.o.smartcase = true
 vim.o.hlsearch = false
 vim.o.swapfile = false
 vim.o.splitbelow = true
@@ -17,13 +18,21 @@ vim.o.errorbells = false
 vim.o.shiftwidth = 2
 vim.o.numberwidth = 4
 vim.o.termguicolors = true
-vim.o.colorcolumn = '80'
+vim.o.colorcolumn = '100'
 vim.o.showmode = false
 vim.o.showtabline = 2
 vim.o.signcolumn = 'yes'
 vim.o.mouse = 'a'
 vim.o.laststatus = 0  -- remove status line
 vim.o.autoindent = true
+vim.o.smartindent = true
+vim.o.hidden = true
+vim.o.backup = false
+vim.o.writebackup = false
+vim.o.updatetime = 300
+vim.o.clipboard = "unnamed,unnamedplus"  -- Copy-paste between vim and everything else
+
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 vim.api.nvim_set_keymap('n', 'vs', ':vs<CR>', { noremap = true })
 -- vim.api.nvim_set_keymap('n', 'sp', ':sp<CR>', { noremap = true })
@@ -40,12 +49,29 @@ vim.api.nvim_set_keymap("n", "<leader>te", ":sp<CR> :term<CR> :resize 20N<CR> i"
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {noremap = true, silent = true})
 -- vim.api.nvim_set_keymap('n', '<C-N>', ":Lexplore<CR> :vertical resize 30<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>w", ":w!<cr>", {noremap = true, silent = true})
---replace current selection with what is in the registry
-vim.api.nvim_set_keymap("v", "<leader>p", '"_dp', { noremap = true})
+-- Replace current selection with what is in the registry
+vim.api.nvim_set_keymap("v", "<leader>p", '"_dp', { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>y", "'+y", { noremap = true })
+-- vim.api.nvim_set_keymap("v", "<leader>y", "'+y", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>Y", "'+Y", { noremap = true })
 
--- vim.g["netrw_banner"] = 0
--- vim.g["netrw_liststyle"] = 3
--- vim.g["netrw_winsize"] = 25
+-- from the primeagen video : go up/down and center to not be distracted
+vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true }) --  go to previous tab
+vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true }) --  go to previous tab
+
+-- Quit all opened buffers
+vim.api.nvim_set_keymap("n", "<leader>Q", "<cmd>qa!<cr>", { silent = true, desc = "quit nvim" })
+
+-- Keep visual mode indenting
+vim.keymap.set("v", "<", "<gv", silent)
+vim.keymap.set("v", ">", ">gv", silent)
+
+-- Don't yank on delete char
+vim.keymap.set("n", "x", '"_x', silent)
+vim.keymap.set("n", "X", '"_X', silent)
+vim.keymap.set("v", "x", '"_x', silent)
+vim.keymap.set("v", "X", '"_X', silent)
+
 
 -- Resize with arrows
 vim.keymap.set("n", "<Up>", ":resize -2<CR>" )
@@ -55,27 +81,12 @@ vim.keymap.set("n", "<Left>", ":vertical resize +2<CR>" )
 vim.keymap.set("n", "<S-Right>", ":vertical resize -60<CR>" )
 vim.keymap.set("n", "<S-Left>", ":vertical resize +60<CR>" )
 
--- windows management : problem leader t is taken to open terminal
+-- windows management
 vim.keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
--- telescope keymaps
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>rg', builtin.registers, {})
-
--- nvim-tree setup
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-require("nvim-tree").setup()
-vim.api.nvim_set_keymap('n', '<C-N>', ":NvimTreeToggle<CR>", { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>n', ":NvimTreeFindFile<CR>", { noremap = true })
--- vim.api.nvim_set_keymap('n', '<C-N>', ":NvimTreeClose<CR>", { noremap = true })
 
 -- leap keymaps
 require('leap').set_default_keymaps()
@@ -90,3 +101,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+-- CHARLIE: win bar with full file path ? not working right now ...
+-- vim.o.winbar = "%{%v:lua.require'nvim.lua.config.winbar'.eval()%}"
