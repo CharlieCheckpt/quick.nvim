@@ -17,7 +17,7 @@ require('nvim-treesitter.configs').setup {
     disable = { "lua" }
   },
   indent = {
-    enable = true
+    enable = false
   },
   incremental_selection = {
       enable = true,
