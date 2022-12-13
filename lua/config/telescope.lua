@@ -28,18 +28,22 @@ telescope.setup{
 require("telescope").load_extension "file_browser"
 
 vim.api.nvim_set_keymap('n', '<C-P>', "<cmd>lua require('telescope.builtin').find_files()<CR>", { noremap = true })
--- vim.api.nvim_set_keymap('n', '<C-N>', ":Telescope file_browser<CR>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<space>fb', ":Telescope file_browser<CR>", { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-F>', "<cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-B>', "<cmd>lua require('telescope.builtin').buffers()<CR>", { noremap = true })
 
 
 local builtin = require('telescope.builtin')
-keymap.set('n', '<leader>ff', builtin.find_files, {})  -- Lists files in your current working directory, respects .gitignore
-keymap.set('n', '<leader>fg', builtin.live_grep, {})  -- Search for a string in your current working directory and get results live as you type, respects .gitignore
-keymap.set('n', '<leader>fs', builtin.grep_string, {})  -- Searches for the string under your cursor in your current working directory
-keymap.set('n', '<leader>fb', builtin.buffers, {})  -- Lists open buffers in current neovim instance
-keymap.set('n', '<leader>fh', builtin.help_tags, {})
-keymap.set('n', '<leader>fr', builtin.registers, {})  -- Lists vim registers, pastes the contents of the register on <cr>
+keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
+keymap.set('n', '<leader>ff', builtin.find_files, { desc = "[F]ind [F]iles" })  -- Lists files in your current working directory, respects .gitignore
+keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "[F]ind by [G]rep" })  -- Search for a string in your current working directory and get results live as you type, respects .gitignore
+keymap.set('n', '<leader>fw', builtin.grep_string, { desc = "[F]ind word" })  -- Searches for the string under your cursor in your current working directory
+keymap.set('n', '<leader>fb', builtin.buffers, { desc = "[F]ind [B]uffers" })  -- Lists open buffers in current neovim instance
+keymap.set('n', '<leader>ft', builtin.help_tags, { desc = "[F]ind [T]ags" })
+keymap.set('n', '<leader>fr', builtin.registers, { desc = "[F]ind [R]egisters" })  -- Lists vim registers, pastes the contents of the register on <cr>
+
+-- Enable telescope fzf native, if installed
+pcall(require('telescope').load_extension, 'fzf')
 
 -- telescope git commands
 -- vim.api.nvim_set_keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", { noremap = true }) -- list all git commits (use <cr> to checkout) ["gc" for git commits]

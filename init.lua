@@ -11,6 +11,15 @@ require('config/better_escape')
 local wilder = require('wilder')
 wilder.setup({modes = {':', '/', '?'}})
 
+-- -- Automatically source and re-compile packer whenever you save this init.lua
+-- -- From https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
+-- local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+-- vim.api.nvim_create_autocmd('BufWritePost', {
+--   command = 'source <afile> | PackerCompile',
+--   group = packer_group,
+--   pattern = vim.fn.expand '$MYVIMRC',
+-- })
+
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   -- faster neovim startup : it is recommended to put impatient.nvim before any other plugins
@@ -31,6 +40,9 @@ return require('packer').startup(function()
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use { "nvim-telescope/telescope-file-browser.nvim" }
+  -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+  
   use {"ur4ltz/surround.nvim"}
   use {
     "max397574/better-escape.nvim",
@@ -58,3 +70,4 @@ return require('packer').startup(function()
   -- git integration
   use { "tpope/vim-fugitive", config = [[require('lua.config.fugitive')]] }
 end)
+

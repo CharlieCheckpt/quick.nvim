@@ -32,6 +32,8 @@ vim.o.writebackup = false
 vim.o.updatetime = 300
 vim.o.clipboard = "unnamed,unnamedplus"  -- Copy-paste between vim and everything else
 
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
 vim.api.nvim_set_keymap('n', 'vs', ':vs<CR>', { noremap = true })
 -- vim.api.nvim_set_keymap('n', 'sp', ':sp<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-L>', '<C-W><C-L>', { noremap = true })
