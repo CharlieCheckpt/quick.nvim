@@ -20,7 +20,8 @@ vim.o.numberwidth = 4
 vim.o.termguicolors = true
 vim.o.colorcolumn = '100'
 vim.o.showmode = false
-vim.o.showtabline = 2
+-- vim.o.showtabline = 2
+vim.o.showtabline = 0  -- never show the tabline
 vim.o.signcolumn = 'yes'
 vim.o.mouse = 'a'
 vim.o.laststatus = 0  -- remove status line
@@ -31,6 +32,7 @@ vim.o.backup = false
 vim.o.writebackup = false
 vim.o.updatetime = 300
 vim.o.clipboard = "unnamed,unnamedplus"  -- Copy-paste between vim and everything else
+
 
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
@@ -101,6 +103,24 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+-- set the winbar
+ vim.api.nvim_create_autocmd('BufWinEnter', {
+     pattern = '*',
+     callback = function()
+         -- skip if a pop up window
+         if vim.fn.win_gettype() == 'popup' then
+             return
+         end
+ 
+         -- skip if new buffer
+         if vim.bo.filetype == '' then
+             return
+         end
+ 
+         vim.wo.winbar = "%{%v:lua.require'config.winbar'.eval()%}"
+     end,
+ })
 
 -- CHARLIE: win bar with full file path ? not working right now ...
 -- vim.o.winbar = "%{%v:lua.require'nvim.lua.config.winbar'.eval()%}"

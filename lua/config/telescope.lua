@@ -42,8 +42,8 @@ keymap.set('n', '<leader>fb', builtin.buffers, { desc = "[F]ind [B]uffers" })  -
 keymap.set('n', '<leader>ft', builtin.help_tags, { desc = "[F]ind [T]ags" })
 keymap.set('n', '<leader>fr', builtin.registers, { desc = "[F]ind [R]egisters" })  -- Lists vim registers, pastes the contents of the register on <cr>
 
--- Enable telescope fzf native, if installed
-pcall(require('telescope').load_extension, 'fzf')
+-- Enable telescope fzf native, if installed. CHARLIE: seems to slow down search
+-- pcall(require('telescope').load_extension, 'fzf')
 
 -- telescope git commands
 -- vim.api.nvim_set_keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", { noremap = true }) -- list all git commits (use <cr> to checkout) ["gc" for git commits]
