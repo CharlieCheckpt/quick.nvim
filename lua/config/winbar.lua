@@ -36,7 +36,8 @@ function M.statusline()
     file_path = file_path:gsub('~', ' $HOME')
 
     -- return '%#WinBarPath#'
-    return '%#Question#'
+    -- return '%#StatusLine#'
+    return '%#number#'
      .. ' [' .. buffer_number .. '] '
      .. file_path .. ' '
      .. '%*'
