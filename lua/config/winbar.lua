@@ -1,23 +1,4 @@
--- local M = {}
-
--- vim.api.nvim_set_hl(0, 'WinBarPath', { bg = '#ff6188', fg = '#363636' })
--- vim.api.nvim_set_hl(0, 'WinBarModified', { bg = '#ff6188', fg = '#ff3838' })
-
--- function M.eval()
---     local file_path = vim.api.nvim_eval_statusline('%f', {}).str
---     local modified = vim.api.nvim_eval_statusline('%M', {}).str == '+' and '⊚' or ''
-
---     -- file_path = file_path:gsub('/', ' ➤ ')
-
---     return '%#WinBarPath#'
---      .. file_path
---      .. '%*'
---      .. '%#WinBarModified#'
---      .. modified
---      .. '%*'
--- end
-
--- return M
+-- from https://gist.github.com/s1n7ax/3d2b476ecbde72693572b8652044e5a4?permalink_comment_id=4215557#gistcomment-4215557
 local M = {}
 
 local winbar_filetype_exclude = {
