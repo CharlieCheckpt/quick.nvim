@@ -1,20 +1,67 @@
+-- local M = {}
+
+-- vim.api.nvim_set_hl(0, 'WinBarPath', { bg = '#ff6188', fg = '#363636' })
+-- vim.api.nvim_set_hl(0, 'WinBarModified', { bg = '#ff6188', fg = '#ff3838' })
+
+-- function M.eval()
+--     local file_path = vim.api.nvim_eval_statusline('%f', {}).str
+--     local modified = vim.api.nvim_eval_statusline('%M', {}).str == '+' and '⊚' or ''
+
+--     -- file_path = file_path:gsub('/', ' ➤ ')
+
+--     return '%#WinBarPath#'
+--      .. file_path
+--      .. '%*'
+--      .. '%#WinBarModified#'
+--      .. modified
+--      .. '%*'
+-- end
+
+-- return M
 local M = {}
 
-vim.api.nvim_set_hl(0, 'WinBarPath', { bg = '#ff6188', fg = '#363636' })
-vim.api.nvim_set_hl(0, 'WinBarModified', { bg = '#ff6188', fg = '#ff3838' })
+local winbar_filetype_exclude = {
+    "help",
+    "startify",
+    "dashboard",
+    "packer",
+    "neogitstatus",
+    "NvimTree",
+    "Trouble",
+    "alpha",
+    "lir",
+    "Outline",
+    "spectre_panel",
+    "toggleterm",
+}
 
-function M.eval()
-    local file_path = vim.api.nvim_eval_statusline('%f', {}).str
-    local modified = vim.api.nvim_eval_statusline('%M', {}).str == '+' and '⊚' or ''
+-- #4A3E4B
+vim.api.nvim_set_hl(0, 'WinBarPath', { bg = '#4A3E4B', fg = '#C1ADC4' })
+vim.api.nvim_set_hl(0, 'WinBarModified', { bg = '#dedede', fg = '#ff3838' })
+
+function M.statusline()
+
+    if vim.tbl_contains(winbar_filetype_exclude, vim.bo.filetype) then
+        return ""
+    end
+
+    local file_path = vim.api.nvim_eval_statusline('%F', {}).str
+    -- local modified = vim.api.nvim_eval_statusline('%M', {}).str == '+' and '⊚' or ''
+    -- local modified = vim.api.nvim_eval_statusline('%m', {}).str
+    local buffer_number = vim.api.nvim_eval_statusline('%n', {}).str
+    local last_change = vim.fn.strftime('%a, %b %d %Y - %H:%M', vim.fn.getftime(vim.fn.expand('%')))
 
     -- file_path = file_path:gsub('/', ' ➤ ')
+    file_path = file_path:gsub('~', ' $HOME')
 
     return '%#WinBarPath#'
-     .. file_path
+     .. ' [' .. buffer_number .. '] '
+     .. file_path .. ' '
      .. '%*'
-     .. '%#WinBarModified#'
-     .. modified
-     .. '%*'
+     -- .. '%#WinBarModified#'
+     -- .. ' ' .. modified
+     -- .. '%*'
+     -- .. 'Modified: ' .. last_change
 end
 
 return M

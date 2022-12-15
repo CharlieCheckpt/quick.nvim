@@ -13,7 +13,7 @@ vim.o.swapfile = false
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.scrolloff = 10
-vim.o.sidescrolloff = 10
+vim.o.sidescrolloff = 20
 vim.o.errorbells = false
 vim.o.shiftwidth = 2
 vim.o.numberwidth = 4
@@ -118,7 +118,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
              return
          end
  
-         vim.wo.winbar = "%{%v:lua.require'config.winbar'.eval()%}"
+         vim.wo.winbar = "%{%v:lua.require'config.winbar'.statusline()%}"
      end,
  })
 
