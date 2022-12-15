@@ -29,6 +29,7 @@ return require('packer').startup(function()
   -- use 'folke/tokyonight.nvim'
   -- use 'Yazeed1s/oh-lucy.nvim'
   use 'sainnhe/sonokai'
+  use { 'embark-theme/vim', as = 'embark' }
   -- use 'B4mbus/oxocarbon-lua.nvim'
   use 'nvim-treesitter/nvim-treesitter' 
   use 'nvim-treesitter/nvim-treesitter-context'

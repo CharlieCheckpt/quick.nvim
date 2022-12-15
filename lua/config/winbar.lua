@@ -28,14 +28,15 @@ function M.statusline()
 
     local file_path = vim.api.nvim_eval_statusline('%F', {}).str
     -- local modified = vim.api.nvim_eval_statusline('%M', {}).str == '+' and '⊚' or ''
-    -- local modified = vim.api.nvim_eval_statusline('%m', {}).str
+    local modified = vim.api.nvim_eval_statusline('%m', {}).str
     local buffer_number = vim.api.nvim_eval_statusline('%n', {}).str
     local last_change = vim.fn.strftime('%a, %b %d %Y - %H:%M', vim.fn.getftime(vim.fn.expand('%')))
 
     -- file_path = file_path:gsub('/', ' ➤ ')
     file_path = file_path:gsub('~', ' $HOME')
 
-    return '%#WinBarPath#'
+    -- return '%#WinBarPath#'
+    return '%#Question#'
      .. ' [' .. buffer_number .. '] '
      .. file_path .. ' '
      .. '%*'
