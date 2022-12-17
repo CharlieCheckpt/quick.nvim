@@ -35,6 +35,13 @@ vim.api.nvim_set_keymap('n', '<C-B>', "<cmd>lua require('telescope.builtin').buf
 
 local builtin = require('telescope.builtin')
 keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader>/', function()
+  -- You can pass additional configuration to telescope to change theme, layout, etc.
+  require('telescope.builtin').current_buffer_fuzzy_find({
+    winblend = 10,
+    previewer = false,
+  })
+end, { desc = '[/] Fuzzily search in current buffer]' })
 keymap.set('n', '<leader>ff', builtin.find_files, { desc = "[F]ind [F]iles" })  -- Lists files in your current working directory, respects .gitignore
 keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "[F]ind by [G]rep" })  -- Search for a string in your current working directory and get results live as you type, respects .gitignore
 keymap.set('n', '<leader>fw', builtin.grep_string, { desc = "[F]ind word" })  -- Searches for the string under your cursor in your current working directory
