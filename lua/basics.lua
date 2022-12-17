@@ -52,7 +52,7 @@ vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {noremap = true, silent = t
 -- vim.api.nvim_set_keymap('n', '<C-N>', ":Lexplore<CR> :vertical resize 30<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>w", ":w!<cr>", {noremap = true, silent = true})
 -- Replace current selection with what is in the registry
-vim.api.nvim_set_keymap("v", "<leader>p", '"_dp', { noremap = true })
+vim.api.nvim_set_keymap("v", "<leader>p", '"_dP', { noremap = true })
 -- vim.api.nvim_set_keymap("n", "<leader>y", "'+y", { noremap = true })
 -- vim.api.nvim_set_keymap("v", "<leader>y", "'+y", { noremap = true })
 -- vim.api.nvim_set_keymap("n", "<leader>Y", "'+Y", { noremap = true })
@@ -67,6 +67,10 @@ vim.api.nvim_set_keymap("n", "<leader>Q", "<cmd>qa!<cr>", { silent = true, desc 
 -- Keep visual mode indenting
 vim.keymap.set("v", "<", "<gv", silent)
 vim.keymap.set("v", ">", ">gv", silent)
+
+-- Move selected lines
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Don't yank on delete char
 vim.keymap.set("n", "x", '"_x', silent)
