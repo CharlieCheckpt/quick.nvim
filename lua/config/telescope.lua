@@ -25,17 +25,19 @@ telescope.setup{
   },
 }
 
+require('telescope').load_extension('fzf')
+
 require("telescope").load_extension "file_browser"
 
 vim.api.nvim_set_keymap('n', '<C-P>', "<cmd>lua require('telescope.builtin').find_files()<CR>", { noremap = true })
-vim.api.nvim_set_keymap('n', '<space>fb', ":Telescope file_browser<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<space>fb', ":Telescope file_browser<CR>", { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-F>', "<cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-B>', "<cmd>lua require('telescope.builtin').buffers()<CR>", { noremap = true })
 
 
 local builtin = require('telescope.builtin')
 keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader>/', function()
+keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find({
     winblend = 10,
