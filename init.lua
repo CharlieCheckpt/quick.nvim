@@ -7,7 +7,6 @@ require('config/treesitter')
 require('config/better_escape')
 -- require('config/winbar')
 
-
 -- command line completion
 local wilder = require('wilder')
 wilder.setup({modes = {':', '/', '?'}})
@@ -26,9 +25,10 @@ return require('packer').startup(function()
   -- faster neovim startup : it is recommended to put impatient.nvim before any other plugins
   use 'lewis6991/impatient.nvim'
   use {'neoclide/coc.nvim', branch = 'release'}
-  -- use 'folke/tokyonight.nvim'
+  use 'folke/tokyonight.nvim'
   -- use 'Yazeed1s/oh-lucy.nvim'
   use 'sainnhe/sonokai'
+  use("loctvl842/monokai-pro.nvim")
   use { 'embark-theme/vim', as = 'embark' }
   -- use 'B4mbus/oxocarbon-lua.nvim'
   use 'nvim-treesitter/nvim-treesitter' 

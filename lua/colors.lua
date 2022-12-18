@@ -1,5 +1,5 @@
 -- tokyonight
--- vim.g.tokyonight_style = 'night'
+-- vim.g.tokyonight_style = 'moon'
 -- vim.cmd([[colorscheme tokyonight]])
 
 -- oh-lucy
@@ -17,3 +17,18 @@ vim.cmd([[colorscheme sonokai]])
 
 --oxocarbon
 -- vim.cmd([[colorscheme oxocarbon-lua]])
+
+-- monokai-pro
+-- require("monokai-pro").setup({
+--   theme = "machine", -- classic | octagon | pro | machine | ristretto | spectrum
+-- 	transparent_background = false, -- better set to false
+-- 	italic_comments = true,
+-- 	diagnostic = {
+-- 		background = true, -- highlight background of diagnostic
+-- 	},
+--     plugins = {
+--         bufferline = {
+--             underline_selected = true, -- better set `false` if you don't use kitty terminal
+--         }
+--     }
+-- })

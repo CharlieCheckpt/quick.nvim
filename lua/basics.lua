@@ -62,7 +62,7 @@ vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true }) --  go to p
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true }) --  go to previous tab
 
 -- Quit all opened buffers
-vim.api.nvim_set_keymap("n", "<leader>Q", "<cmd>qa!<cr>", { silent = true, desc = "quit nvim" })
+vim.api.nvim_set_keymap("n", "<leader>qq", "<cmd>qa!<cr>", { silent = true, desc = "quit nvim" })
 
 -- Keep visual mode indenting
 vim.keymap.set("v", "<", "<gv", silent)
