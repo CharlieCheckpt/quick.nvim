@@ -125,6 +125,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
          vim.wo.winbar = "%{%v:lua.require'config.winbar'.statusline()%}"
      end,
  })
-
--- CHARLIE: win bar with full file path ? not working right now ...
--- vim.o.winbar = "%{%v:lua.require'nvim.lua.config.winbar'.eval()%}"

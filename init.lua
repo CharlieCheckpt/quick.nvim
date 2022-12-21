@@ -5,7 +5,6 @@ require('config/fugitive')
 require('config/coc')
 require('config/treesitter')
 require('config/better_escape')
--- require('config/winbar')
 
 -- command line completion
 local wilder = require('wilder')
