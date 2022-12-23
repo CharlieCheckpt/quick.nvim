@@ -18,7 +18,7 @@ vim.o.errorbells = false
 vim.o.shiftwidth = 2
 vim.o.numberwidth = 4
 vim.o.termguicolors = true
-vim.o.colorcolumn = '100'
+vim.o.colorcolumn = false
 vim.o.showmode = false
 -- vim.o.showtabline = 2
 vim.o.showtabline = 0  -- never show the tabline
@@ -32,7 +32,6 @@ vim.o.backup = false
 vim.o.writebackup = false
 vim.o.updatetime = 300
 vim.o.clipboard = "unnamed,unnamedplus"  -- Copy-paste between vim and everything else
-
 
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
