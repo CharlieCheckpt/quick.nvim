@@ -69,6 +69,6 @@ return require('packer').startup(function()
     'gelguy/wilder.nvim',
   }
   -- git integration
-  use { "tpope/vim-fugitive", config = [[require('lua.config.fugitive')]] }
+  use 'tpope/vim-fugitive'
 end)
 
