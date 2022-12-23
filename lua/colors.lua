@@ -20,7 +20,7 @@ vim.cmd([[colorscheme sonokai]])
 
 -- monokai-pro
 -- require("monokai-pro").setup({
---   theme = "machine", -- classic | octagon | pro | machine | ristretto | spectrum
+--   filter = "octagon", -- classic | octagon | pro | machine | ristretto | spectrum
 -- 	transparent_background = false, -- better set to false
 -- 	italic_comments = true,
 -- 	diagnostic = {
