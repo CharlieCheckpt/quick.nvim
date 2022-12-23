@@ -57,6 +57,7 @@ vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {noremap = true, silent = t
 -- vim.api.nvim_set_keymap('n', '<C-N>', ":Lexplore<CR> :vertical resize 30<CR>", { noremap = true })
 
 -- easier saving
+vim.api.nvim_set_keymap("i", "<leader>w", "<cmd>:w!<cr>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>w", ":w!<cr>", {noremap = true, silent = true})
 
 -- Replace current selection with what is in the registry
@@ -128,3 +129,39 @@ vim.api.nvim_create_autocmd('TextYankPost', {
          vim.wo.winbar = "%{%v:lua.require'config.winbar'.statusline()%}"
      end,
  })
+
+-- show cursor line only in active window. taken from https://github.com/folke/dot/blob/master/config/nvim/lua/config/commands.lua
+vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
+  callback = function()
+    local ok, cl = pcall(vim.api.nvim_win_get_var, 0, "auto-cursorline")
+    if ok and cl then
+      vim.wo.cursorline = true
+      vim.api.nvim_win_del_var(0, "auto-cursorline")
+    end
+  end,
+})
+vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
+  callback = function()
+    local cl = vim.wo.cursorline
+    if cl then
+      vim.api.nvim_win_set_var(0, "auto-cursorline", cl)
+      vim.wo.cursorline = false
+    end
+  end,
+})
+
+-- go to last loc when opening a buffer, taken from https://github.com/folke/dot/blob/master/config/nvim/lua/config/commands.lua
+vim.api.nvim_create_autocmd("BufReadPre", {
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "<buffer>",
+      once = true,
+      callback = function()
+        vim.cmd(
+          [[if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif]]
+        )
+      end,
+    })
+  end,
+})
