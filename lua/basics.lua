@@ -57,7 +57,7 @@ vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {noremap = true, silent = t
 -- vim.api.nvim_set_keymap('n', '<C-N>', ":Lexplore<CR> :vertical resize 30<CR>", { noremap = true })
 
 -- easier saving
-vim.api.nvim_set_keymap("i", "<leader>w", "<cmd>:w!<cr>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("i", "<C-w>", "<cmd>:w!<cr>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>w", ":w!<cr>", {noremap = true, silent = true})
 
 -- Replace current selection with what is in the registry

@@ -10,26 +10,24 @@ require('config/better_escape')
 local wilder = require('wilder')
 wilder.setup({modes = {':', '/', '?'}})
 
--- -- Automatically source and re-compile packer whenever you save this init.lua
--- -- From https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
--- local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
--- vim.api.nvim_create_autocmd('BufWritePost', {
---   command = 'source <afile> | PackerCompile',
---   group = packer_group,
---   pattern = vim.fn.expand '$MYVIMRC',
--- })
-
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   -- faster neovim startup : it is recommended to put impatient.nvim before any other plugins
   use 'lewis6991/impatient.nvim'
   use {'neoclide/coc.nvim', branch = 'release'}
+
+  -- color themes
   use 'folke/tokyonight.nvim'
   -- use 'Yazeed1s/oh-lucy.nvim'
   use 'sainnhe/sonokai'
   use("loctvl842/monokai-pro.nvim")
   use { 'embark-theme/vim', as = 'embark' }
   -- use 'B4mbus/oxocarbon-lua.nvim'
+  use {
+      'ramojus/mellifluous.nvim',
+      requires = {'rktjmp/lush.nvim'}
+  }
+
   use 'nvim-treesitter/nvim-treesitter' 
   use 'nvim-treesitter/nvim-treesitter-context'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -52,9 +50,8 @@ return require('packer').startup(function()
     end,
   }
   -- easy motion with s
-  use({
-    'ggandor/leap.nvim',
-  }) 
+  use 'ggandor/leap.nvim'
+
   use 'DanilaMihailov/beacon.nvim'
   -- file explorer
   use {
