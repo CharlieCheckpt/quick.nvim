@@ -165,3 +165,7 @@ vim.api.nvim_create_autocmd("BufReadPre", {
     })
   end,
 })
+
+require("printer").setup({
+  keymap = "gp"
+})

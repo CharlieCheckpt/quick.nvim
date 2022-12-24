@@ -67,5 +67,9 @@ return require('packer').startup(function()
   }
   -- git integration
   use 'tpope/vim-fugitive'
+
+  use {
+    'rareitems/printer.nvim',
+}
 end)
 
