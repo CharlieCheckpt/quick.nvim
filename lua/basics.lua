@@ -4,7 +4,12 @@ vim.o.relativenumber = true
 vim.o.wrap = false
 vim.o.expandtab = true
 vim.o.incsearch = true
-vim.o.tabstop = 2
+-- vim.o.tabstop = 2
+vim.o.tabstop = 4 -- Make tabs equals to 4 columns
+vim.o.softtabstop = 4 -- Make tabs equals to 4 columns
+vim.o.shiftwidth = 4 -- Make a indentation equals to 4 columns
+vim.o.shiftround = true -- Indentation to the closest tab
+vim.o.expandtab = true -- Convert tab to spaces
 vim.o.cursorline = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -15,7 +20,7 @@ vim.o.splitright = true
 vim.o.scrolloff = 10  -- how window move when you move vertically
 vim.o.sidescrolloff = 50  -- how window move when you move horizontally
 vim.o.errorbells = false
-vim.o.shiftwidth = 2
+-- vim.o.shiftwidth = 2
 vim.o.numberwidth = 4
 vim.o.termguicolors = true
 vim.o.colorcolumn = false
@@ -193,3 +198,25 @@ wilder.set_option('pipeline', {
     })
   ),
 })
+
+-- make indent work properly
+require("nvim-treesitter.configs").setup {
+  yati = {
+    enable = true,
+    -- Disable by languages, see `Supported languages`
+    disable = { "python" },
+
+    -- Whether to enable lazy mode (recommend to enable this if bad indent happens frequently)
+    default_lazy = true,
+
+    -- Determine the fallback method used when we cannot calculate indent by tree-sitter
+    --   "auto": fallback to vim auto indent
+    --   "asis": use current indent as-is
+    --   "cindent": see `:h cindent()`
+    -- Or a custom function return the final indent result.
+    default_fallback = "auto"
+  },
+  indent = {
+    enable = false -- disable builtin indent module
+  }
+}
