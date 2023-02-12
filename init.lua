@@ -31,17 +31,16 @@ require("lazy").setup({
     'nvim-treesitter/nvim-treesitter',
     'nvim-treesitter/nvim-treesitter-context',
     'nvim-treesitter/nvim-treesitter-textobjects',
-    { "yioneko/nvim-yati", tag = "*", requires = "nvim-treesitter/nvim-treesitter" },
+    { "yioneko/nvim-yati", tag = "*"},
     'tpope/vim-commentary',
     'JoosepAlviste/nvim-ts-context-commentstring',
     'lukas-reineke/indent-blankline.nvim',
-    {
+    -- plenary for telescope
+    "nvim-lua/plenary.nvim",
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
-    },
     "nvim-telescope/telescope-file-browser.nvim",
     -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-    { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
+    'nvim-telescope/telescope-fzf-native.nvim',
     "ur4ltz/surround.nvim",
     { 
         "max397574/better-escape.nvim", 
