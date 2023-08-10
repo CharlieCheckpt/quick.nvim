@@ -33,7 +33,6 @@ local plugins = {
     'folke/tokyonight.nvim',
     'sainnhe/sonokai',
     "loctvl842/monokai-pro.nvim",
-    { "catppuccin/nvim", as = "catppuccin" },
 
     'nvim-treesitter/nvim-treesitter',
     'nvim-treesitter/nvim-treesitter-context',
@@ -48,7 +47,7 @@ local plugins = {
     },
     { "nvim-telescope/telescope-file-browser.nvim" },
     -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-    { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make'},
     
     {"ur4ltz/surround.nvim"},
     {

@@ -7,7 +7,7 @@ vim.api.nvim_set_keymap('n', '<leader>n', ":NvimTreeFindFile<CR>", { noremap = t
 -- vim.api.nvim_set_keymap('n', '<C-N>', ":NvimTreeClose<CR>", { noremap = true })
 
 require('nvim-treesitter.configs').setup {
-  ensure_installed = "python",
+  ensure_installed = {"python", "vim"},
   ignore_install = { "phpdoc" },
   context_commentstring = {
     enable = true
@@ -17,7 +17,7 @@ require('nvim-treesitter.configs').setup {
     disable = { "lua" }
   },
   indent = {
-    enable = false
+    enable = true  -- not sure if this should be false of true
   },
   incremental_selection = {
       enable = true,

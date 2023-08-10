@@ -17,13 +17,15 @@ vim.o.hlsearch = false
 vim.o.swapfile = false
 vim.o.splitbelow = true
 vim.o.splitright = true
-vim.o.scrolloff = 10  -- how window move when you move vertically
-vim.o.sidescrolloff = 50  -- how window move when you move horizontally
+-- vim.o.scrolloff = 10  -- how window move when you move vertically
+vim.o.scrolloff = 9999
+vim.o.sidescroll = 1
+-- vim.o.sidescrolloff = 50   -- how window move when you move horizontally
 vim.o.errorbells = false
 -- vim.o.shiftwidth = 2
 vim.o.numberwidth = 4
 vim.o.termguicolors = true
-vim.o.colorcolumn = false
+-- vim.o.colorcolumn = false
 vim.o.showmode = false
 -- vim.o.showtabline = 2
 vim.o.showtabline = 0  -- never show the tabline
@@ -220,3 +222,16 @@ require("nvim-treesitter.configs").setup {
     enable = false -- disable builtin indent module
   }
 }
+
+-- docstring
+vim.g.pydocstring_doq_path =  "/mnt/disks/sdb/usr_data/DATA_CSAILLARD/envs/venv/bin/doq"
+vim.g.pydocstring_formatter = "google"
+vim.api.nvim_set_keymap('n', '<leader>dc', ':Pydocstring<CR>', { noremap = true })
+
+-- flash
+-- vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end, {desc="Flash"})
+-- vim.keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() end, {desc="Flash Treesitter"})
+-- vim.keymap.set({ "n", "x", "o" }, "r", function() require("flash").remote() end, {desc="Remote Flash"})
+-- vim.keymap.set({ "x", "o" }, "R", function() require("flash").treesitter_search() end, {desc="Treesitter search"})
+-- vim.keymap.set("c", "<c-s>", function() require("flash").toggle() end, {desc="Toggle Flash Search"})
+
