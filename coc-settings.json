@@ -3,6 +3,10 @@
   "python.formatting.provider": "black",
   "python.formatting.blackArgs": [
     "--line-length", 
-    "100", 
-  ]
+    "100"
+  ],
+  "snippets.ultisnips.pythonPrompt": false,
+  "pyright.inlayHints.variableTypes": false,
+  "python.pythonPath": "/mnt/disks/sdb/usr_data/DATA_CSAILLARD/envs/venv/bin/python",
+  "python.linting.mypyEnabled": true
 }

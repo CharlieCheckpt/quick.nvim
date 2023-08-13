@@ -78,4 +78,3 @@ return require('packer').startup(function()
   }
   use 'heavenshell/vim-pydocstring'
 end)
-

@@ -220,3 +220,8 @@ require("nvim-treesitter.configs").setup {
     enable = false -- disable builtin indent module
   }
 }
+
+-- docstring
+vim.g.pydocstring_doq_path =  "/mnt/disks/sdb/usr_data/DATA_CSAILLARD/envs/venv/bin/doq"
+vim.g.pydocstring_formatter = "google"
+vim.api.nvim_set_keymap('n', '<leader>dc', ':Pydocstring<CR>', { noremap = true })
