@@ -77,4 +77,8 @@ return require('packer').startup(function()
     'rareitems/printer.nvim',
   }
   use 'heavenshell/vim-pydocstring'
+  -- For use of C-Up and C-Down on mac, you'll need to do this 
+  -- https://github.com/mg979/vim-visual-multi/issues/146#issuecomment-1051939112
+  use {'mg979/vim-visual-multi', branch = 'master'}
+  use {'kaicataldo/material.vim', branch = 'main'}
 end)

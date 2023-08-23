@@ -225,3 +225,11 @@ require("nvim-treesitter.configs").setup {
 vim.g.pydocstring_doq_path =  "/mnt/disks/sdb/usr_data/DATA_CSAILLARD/envs/venv/bin/doq"
 vim.g.pydocstring_formatter = "google"
 vim.api.nvim_set_keymap('n', '<leader>dc', ':Pydocstring<CR>', { noremap = true })
+
+
+--Multi cursor
+-- let g:VM_maps = {}
+-- let g:VM_maps["Add Cursor Down"]    = '<M-j>'   " new cursor down
+-- let g:VM_maps["Add Cursor Up"]      = '<M-k>'   " new cursor up
+--
+vim.api.nvim_set_keymap('n', '<C-*>', ":vm-find-word<CR>", { noremap = true })
