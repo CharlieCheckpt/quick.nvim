@@ -5,6 +5,7 @@ vim.api.nvim_set_keymap("n", "gh", ":call CocActionAsync('doHover')<CR>", {silen
 vim.api.nvim_set_keymap("n", "<leader>rn", "<Plug>(coc-rename)", {})
 -- map <leader fo> to formatFile to not interfere with telescope keymaps
 vim.api.nvim_set_keymap("n", "<leader>F", ":call CocAction('format')<CR>", {noremap = true})
+-- to trigger completion suggestions
 vim.api.nvim_set_keymap("i", "<C-Space>", "coc#refresh()", { silent = true, expr = true })
 -- vim.api.nvim_set_keymap("i", "<TAB>", "pumvisible() ? '<C-n>' : '<TAB>'", {noremap = true, silent = true, expr = true})
 -- vim.api.nvim_set_keymap("i", "<S-TAB>", "pumvisible() ? '<C-p>' : '<C-h>'", {noremap = true, expr = true})
