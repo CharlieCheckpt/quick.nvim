@@ -5,6 +5,7 @@ require("nvim-tree").setup()
 vim.api.nvim_set_keymap('n', '<C-e>', ":NvimTreeToggle<CR>", { noremap = false })
 vim.api.nvim_set_keymap('n', '<leader>e', ":NvimTreeFindFile<CR>", { noremap = false })
 -- vim.api.nvim_set_keymap('n', '<C-e>', ":NvimTreeClose<CR>", { noremap = true })
+-- vim.api.nvim_set_hl(0, "@foo.bar", { link = "Identifier" })
 
 require('nvim-treesitter.configs').setup {
   ensure_installed = "python",
@@ -14,7 +15,7 @@ require('nvim-treesitter.configs').setup {
   },
   highlight = {
     enable = true,
-    disable = { "lua" }
+    disable = { "lua", "yaml"},
   },
   indent = {
     enable = false

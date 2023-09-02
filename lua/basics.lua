@@ -118,22 +118,22 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Set the winbar with file full path
- vim.api.nvim_create_autocmd('BufWinEnter', {
-     pattern = '*',
-     callback = function()
-         -- skip if a pop up window
-         if vim.fn.win_gettype() == 'popup' then
-             return
-         end
- 
-         -- skip if new buffer
-         if vim.bo.filetype == '' then
-             return
-         end
- 
-         vim.wo.winbar = "%{%v:lua.require'config.winbar'.statusline()%}"
-     end,
- })
+vim.api.nvim_create_autocmd('BufWinEnter', {
+    pattern = '*',
+    callback = function()
+        -- skip if a pop up window
+        if vim.fn.win_gettype() == 'popup' then
+            return
+        end
+
+        -- skip if new buffer
+        if vim.bo.filetype == '' then
+            return
+        end
+
+        vim.wo.winbar = "%{%v:lua.require'config.winbar'.statusline()%}"
+    end,
+})
 
 -- show cursor line only in active window. taken from https://github.com/folke/dot/blob/master/config/nvim/lua/config/commands.lua
 vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
@@ -171,9 +171,9 @@ vim.api.nvim_create_autocmd("BufReadPre", {
   end,
 })
 
-require("printer").setup({
-  keymap = "gp"
-})
+-- require("printer").setup({
+--   keymap = "gp"
+-- })
 
 -- configure wilder to use fuzzy searching
 local wilder = require("wilder")
@@ -232,4 +232,8 @@ vim.api.nvim_set_keymap('n', '<leader>dc', ':Pydocstring<CR>', { noremap = true 
 -- let g:VM_maps["Add Cursor Down"]    = '<M-j>'   " new cursor down
 -- let g:VM_maps["Add Cursor Up"]      = '<M-k>'   " new cursor up
 --
-vim.api.nvim_set_keymap('n', '<C-*>', ":vm-find-word<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<C-n>', ":vm-find-word<CR>", { noremap = true })
+
+-- structural search
+vim.keymap.set({ "n", "x" }, "<leader>xr", function() require("ssr").open() end)
+

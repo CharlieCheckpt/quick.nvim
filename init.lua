@@ -22,7 +22,7 @@ return require('packer').startup(function()
   use 'Yazeed1s/oh-lucy.nvim'
   use 'sainnhe/sonokai'
   use "EdenEast/nightfox.nvim" -- Packer
-  -- use("loctvl842/monokai-pro.nvim")
+  use("loctvl842/monokai-pro.nvim")
   use { "catppuccin/nvim", as = "catppuccin" }
   use { 'embark-theme/vim', as = 'embark' }
   use 'B4mbus/oxocarbon-lua.nvim'
@@ -73,12 +73,31 @@ return require('packer').startup(function()
   -- git integration
   use 'tpope/vim-fugitive'
 
-  use {
-    'rareitems/printer.nvim',
-  }
   use 'heavenshell/vim-pydocstring'
   -- For use of C-Up and C-Down on mac, you'll need to do this 
   -- https://github.com/mg979/vim-visual-multi/issues/146#issuecomment-1051939112
   use {'mg979/vim-visual-multi', branch = 'master'}
   use {'kaicataldo/material.vim', branch = 'main'}
+  use {
+    "cshuaimin/ssr.nvim",
+    module = "ssr",
+    -- Calling setup is optional.
+    config = function()
+        require("ssr").setup {
+            border = "rounded",
+            min_width = 50,
+            min_height = 5,
+            max_width = 120,
+            max_height = 25,
+            keymaps = {
+                close = "q",
+                next_match = "n",
+                prev_match = "N",
+                replace_confirm = "<cr>",
+                replace_all = "<leader><cr>",
+            },
+        }
+    end
+  }
+  -- use 'TaDaa/vimade'
 end)
