@@ -71,23 +71,25 @@ vim.api.nvim_set_keymap("v", "<leader>p", '"_dP', { noremap = true })
 -- from the primeagen video : go up/down and center to not be distracted
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true }) --  go to previous tab
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true }) --  go to previous tab
+vim.api.nvim_set_keymap("n", "n", "nzzzv")
+vim.api.nvim_set_keymap("n", "N", "Nzzzv")
 
 -- Quit all opened buffers
 vim.api.nvim_set_keymap("n", "<leader>qq", "<cmd>qa!<cr>", { silent = true, desc = "quit nvim" })
 
 -- Keep visual mode indenting
-vim.keymap.set("v", "<", "<gv", silent)
-vim.keymap.set("v", ">", ">gv", silent)
+vim.keymap.set("v", "<", "<gv", { silent = true })
+vim.keymap.set("v", ">", ">gv", { silent = true })
 
 -- Move selected lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Don't yank on delete char
-vim.keymap.set("n", "x", '"_x', silent)
-vim.keymap.set("n", "X", '"_X', silent)
-vim.keymap.set("v", "x", '"_x', silent)
-vim.keymap.set("v", "X", '"_X', silent)
+vim.keymap.set("n", "x", '"_x', { silent = true })
+vim.keymap.set("n", "X", '"_X', { silent = true })
+vim.keymap.set("v", "x", '"_x', { silent = true })
+vim.keymap.set("v", "X", '"_X', { silent = true })
 
 -- Resize with arrows
 vim.keymap.set("n", "<Up>", ":resize -2<CR>" )
