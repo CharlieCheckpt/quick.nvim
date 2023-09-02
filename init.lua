@@ -6,7 +6,6 @@ require('config/fugitive')
 require('config/treesitter')
 require('config/better_escape')
 require('config/lsp')
-require('config/cmp')
 
 -- command line completion
 local wilder = require('wilder')
@@ -82,15 +81,21 @@ return require('packer').startup(function()
     use 'mhartington/oceanic-next'
     use 'tanvirtin/monokai.nvim'
 
-    use "neovim/nvim-lspconfig" -- enable LSP
+    -- LSP with lsp-zero for ease
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        requires = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},             -- Required
+            {'williamboman/mason.nvim'},           -- Optional
+            {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
-    use "williamboman/mason.nvim"
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},     -- Required
+            {'hrsh7th/cmp-nvim-lsp'}, -- Required
+            {'L3MON4D3/LuaSnip'},     -- Required
+        }
+    }
 
-    use "williamboman/mason-lspconfig.nvim"
-
-    use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-
-    use "hrsh7th/nvim-cmp"
-
-    use "hrsh7th/cmp-nvim-lsp"
 end)
