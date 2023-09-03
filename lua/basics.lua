@@ -71,8 +71,8 @@ vim.api.nvim_set_keymap("v", "<leader>p", '"_dP', { noremap = true })
 -- from the primeagen video : go up/down and center to not be distracted
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true }) --  go to previous tab
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true }) --  go to previous tab
-vim.api.nvim_set_keymap("n", "n", "nzzzv")
-vim.api.nvim_set_keymap("n", "N", "Nzzzv")
+vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true})
+vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true})
 
 -- Quit all opened buffers
 vim.api.nvim_set_keymap("n", "<leader>qq", "<cmd>qa!<cr>", { silent = true, desc = "quit nvim" })
@@ -173,10 +173,6 @@ vim.api.nvim_create_autocmd("BufReadPre", {
   end,
 })
 
-require("printer").setup({
-  keymap = "gp"
-})
-
 -- configure wilder to use fuzzy searching
 local wilder = require("wilder")
 wilder.set_option('pipeline', {
@@ -222,3 +218,12 @@ require("nvim-treesitter.configs").setup {
     enable = false -- disable builtin indent module
   }
 }
+
+local ok, wf = pcall(require, "vim.lsp._watchfiles")
+if ok then
+-- disable lsp watcher. Too slow on linux
+wf._watchfunc = function()
+return function() end
+end
+end
+
