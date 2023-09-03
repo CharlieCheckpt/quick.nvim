@@ -7,10 +7,9 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 -- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+-- require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 lsp.setup()
-
 
 local cmp = require("cmp")
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -32,3 +31,22 @@ cmp.setup({
   }
 })
 
+
+-- try to make pyright less slow
+local lspconfig = require('lspconfig')
+lspconfig.pyright.setup {
+  on_attach = on_attach,
+  settings = {
+    pyright = {
+      autoImportCompletion = true,
+    },
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = 'openFilesOnly',
+        useLibraryCodeForTypes = true,
+        typeCheckingMode = 'off'
+      }
+    }
+  }
+}
