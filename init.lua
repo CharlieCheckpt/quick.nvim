@@ -74,12 +74,13 @@ return require('packer').startup(function()
     -- git integration
     use 'tpope/vim-fugitive'
 
-    use {
-        'rareitems/printer.nvim',
-    }
     use 'heavenshell/vim-pydocstring'
     use 'mhartington/oceanic-next'
     use 'tanvirtin/monokai.nvim'
+    
+    -- For use of C-Up and C-Down on mac, you'll need to do this 
+    -- https://github.com/mg979/vim-visual-multi/issues/146#issuecomment-1051939112
+    use {'mg979/vim-visual-multi', branch = 'master'}
 
     -- LSP with lsp-zero for ease
     use {
