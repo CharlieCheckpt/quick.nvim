@@ -7,6 +7,7 @@
   ],
   "snippets.ultisnips.pythonPrompt": false,
   "pyright.inlayHints.variableTypes": false,
+  "pyright.inlayHints.functionReturnTypes": false,
   "python.pythonPath": "/mnt/disks/sdb/usr_data/DATA_CSAILLARD/envs/venv/bin/python",
   "python.linting.mypyEnabled": true
 }
