@@ -30,10 +30,6 @@ vim.g.sonokai_transparent_background = 1
 --   end
 -- })
 
-require("catppuccin").setup({
-    flavour = "frappe", -- latte, frappe, macchiato, mocha
-    transparent_background = true
-})
 
 vim.cmd([[colorscheme sonokai]])
 

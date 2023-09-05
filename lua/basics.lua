@@ -105,9 +105,6 @@ vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
--- leap keymaps
-require('leap').set_default_keymaps()
-
 -- Highlight on Yank 
 -- taken from https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -173,51 +170,6 @@ vim.api.nvim_create_autocmd("BufReadPre", {
   end,
 })
 
--- configure wilder to use fuzzy searching
-local wilder = require("wilder")
-wilder.set_option('pipeline', {
-  wilder.branch(
-    wilder.cmdline_pipeline({
-      -- sets the language to use, 'vim' and 'python' are supported
-      language = 'python',
-      -- 0 turns off fuzzy matching
-      -- 1 turns on fuzzy matching
-      -- 2 partial fuzzy matching (match does not have to begin with the same first letter)
-      fuzzy = 1,
-    }),
-    wilder.python_search_pipeline({
-      -- can be set to wilder#python_fuzzy_delimiter_pattern() for stricter fuzzy matching
-      pattern = wilder.python_fuzzy_pattern(),
-      -- omit to get results in the order they appear in the buffer
-      sorter = wilder.python_difflib_sorter(),
-      -- can be set to 're2' for performance, requires pyre2 to be installed
-      -- see :h wilder#python_search() for more details
-      engine = 're',
-    })
-  ),
-})
-
--- make indent work properly
-require("nvim-treesitter.configs").setup {
-  yati = {
-    enable = true,
-    -- Disable by languages, see `Supported languages`
-    disable = { "python" },
-
-    -- Whether to enable lazy mode (recommend to enable this if bad indent happens frequently)
-    default_lazy = true,
-
-    -- Determine the fallback method used when we cannot calculate indent by tree-sitter
-    --   "auto": fallback to vim auto indent
-    --   "asis": use current indent as-is
-    --   "cindent": see `:h cindent()`
-    -- Or a custom function return the final indent result.
-    default_fallback = "auto"
-  },
-  indent = {
-    enable = false -- disable builtin indent module
-  }
-}
 
 local ok, wf = pcall(require, "vim.lsp._watchfiles")
 if ok then
