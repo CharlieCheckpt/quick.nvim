@@ -13,8 +13,6 @@ wilder.setup({ modes = { ':', '/', '?' } })
 
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
-    -- faster neovim startup : it is recommended to put impatient.nvim before any other plugins
-    use 'lewis6991/impatient.nvim'
     -- use {'neoclide/coc.nvim', branch = 'release'}
 
     -- color themes
@@ -38,7 +36,6 @@ return require('packer').startup(function()
     use({ "yioneko/nvim-yati", tag = "*", requires = "nvim-treesitter/nvim-treesitter" })
 
     use 'tpope/vim-commentary'
-    use 'JoosepAlviste/nvim-ts-context-commentstring'
     use 'lukas-reineke/indent-blankline.nvim'
     use {
         'nvim-telescope/telescope.nvim',
@@ -94,6 +91,7 @@ return require('packer').startup(function()
 
             -- Autocompletion
             {'hrsh7th/nvim-cmp'},     -- Required
+            {'hrsh7th/cmp-path'},     -- Required
             {'hrsh7th/cmp-nvim-lsp'}, -- Required
             {'L3MON4D3/LuaSnip'},     -- Required
         }
