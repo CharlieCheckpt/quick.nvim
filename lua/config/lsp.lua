@@ -1,4 +1,21 @@
-local lsp = require('lsp-zero').preset({})
+local lsp = require('lsp-zero').preset({
+  float_border = 'rounded',
+  call_servers = 'local',
+  configure_diagnostics = true,
+  setup_servers_on_start = true,
+  set_lsp_keymaps = {
+    preserve_mappings = false,
+    omit = {},
+  },
+  manage_nvim_cmp = {
+    set_sources = 'recommended',
+    set_basic_mappings = true,
+    set_extra_mappings = false,
+    use_luasnip = true,
+    set_format = true,
+    documentation_window = true,
+  },
+})
 
 lsp.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
@@ -32,36 +49,43 @@ cmp.setup({
 })
 
 
--- try to make pyright less slow
-local lspconfig = require('lspconfig')
-lspconfig.pyright.setup {
-  on_attach = on_attach,
-  settings = {
-    pyright = {
-      autoImportCompletion = true,
-    },
-    python = {
-      analysis = {
-        autoSearchPaths = true,
-        diagnosticMode = 'openFilesOnly',
-        useLibraryCodeForTypes = true,
-        typeCheckingMode = 'off'
-      }
-    }
-  }
-}
+-- -- try to make pyright less slow
+-- -- local lspconfig = require('lspconfig')
+-- -- lspconfig.pyright.setup {
+-- --   on_attach = on_attach,
+-- --   settings = {
+-- --     pyright = {
+-- --       autoImportCompletion = true,
+-- --     },
+-- --     python = {
+-- --       analysis = {
+-- --         autoSearchPaths = true,
+-- --         diagnosticMode = 'openFilesOnly',
+-- --         useLibraryCodeForTypes = true,
+-- --         typeCheckingMode = 'off'
+-- --       }
+-- --     }
+-- --   }
+-- -- }
 
-lsp.on_attach(function(client, bufnr)
-  local opts = {buffer = bufnr, remap = false}
+-- lsp.on_attach(function(client, bufnr)
+--   local opts = {buffer = bufnr, remap = false}
 
-  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-  vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-  vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-end)
+--   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+--   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+--   vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+--   vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+--   vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+--   vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+--   vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+--   vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+--   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+--   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+-- end)
+
+
+-- require'cmp'.setup {
+--   sources = {
+--     { name = 'path' }
+--   }
+-- }
