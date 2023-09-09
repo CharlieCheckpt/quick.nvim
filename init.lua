@@ -99,5 +99,4 @@ return require('packer').startup(function()
         }
     end
   }
-  -- use 'TaDaa/vimade'
 end)

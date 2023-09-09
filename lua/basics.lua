@@ -155,6 +155,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
   end,
 })
 
+
 -- go to last loc when opening a buffer, taken from https://github.com/folke/dot/blob/master/config/nvim/lua/config/commands.lua
 vim.api.nvim_create_autocmd("BufReadPre", {
   pattern = "*",
@@ -236,4 +237,9 @@ vim.api.nvim_set_keymap('n', '<leader>dc', ':Pydocstring<CR>', { noremap = true 
 
 -- structural search
 vim.keymap.set({ "n", "x" }, "<leader>xr", function() require("ssr").open() end)
+
+
+require'treesitter-context'.setup{
+  multiline_threshold = 1, -- Maximum number of lines to show for a single context
+}
 
