@@ -11,15 +11,27 @@ vim.g.sonokai_style = 'andromeda'
 vim.g.sonokai_better_performance = 1
 vim.g.sonokai_transparent_background = 1
 
--- vim.g.sonokai_spell_foreground = "colored"
--- vim.g.sonokai_enable_italic = 1
 vim.cmd([[colorscheme sonokai]])
 
--- embark
--- vim.cmd([[colorscheme embark]])
+-- vim.g.sonokai_spell_foreground = "colored"
+-- vim.g.sonokai_enable_italic = 1
 
---oxocarbon
--- vim.cmd([[colorscheme oxocarbon-lua]])
+-- https://github.com/sainnhe/sonokai/issues/94
+-- Apply custom highlights on colorscheme chsonokaiange.
+-- Must be declared before executing ':colorscheme'.
+-- local grpid = vim.api.nvim_create_augroup('custom_highlights_sonokai', {})
+-- vim.api.nvim_create_autocmd('ColorScheme', {
+--   group = grpid,
+--   pattern = 'sonokai',
+--   callback = function()
+--     local config = vim.fn['sonokai#get_configuration']()
+--     local palette = vim.fn['sonokai#get_palette'](config.style, config.colors_override)
+--     local set_hl = vim.fn['sonokai#highlight']
+
+--     set_hl('@type.python', palette.fg, palette.none)
+--   end
+-- })
+
 
 -- monokai-pro
 -- require("monokai-pro").setup({
@@ -35,3 +47,4 @@ vim.cmd([[colorscheme sonokai]])
 --         }
 --     }
 -- })
+-- vim.cmd([[colorscheme monokai-pro]])

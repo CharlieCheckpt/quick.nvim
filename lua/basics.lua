@@ -173,10 +173,6 @@ vim.api.nvim_create_autocmd("BufReadPre", {
   end,
 })
 
-require("printer").setup({
-  keymap = "gp"
-})
-
 -- configure wilder to use fuzzy searching
 local wilder = require("wilder")
 wilder.set_option('pipeline', {
@@ -222,3 +218,16 @@ require("nvim-treesitter.configs").setup {
     enable = false -- disable builtin indent module
   }
 }
+
+local ok, wf = pcall(require, "vim.lsp._watchfiles")
+if ok then
+-- disable lsp watcher. Too slow on linux
+wf._watchfunc = function()
+return function() end
+end
+end
+
+-- docstring
+vim.g.pydocstring_doq_path =  "/mnt/disks/sdb/usr_data/DATA_CSAILLARD/envs/venv/bin/doq"
+vim.g.pydocstring_formatter = "google"
+vim.api.nvim_set_keymap('n', '<leader>dc', ':Pydocstring<CR>', { noremap = true })
