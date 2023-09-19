@@ -38,6 +38,9 @@ vim.o.writebackup = false
 vim.o.updatetime = 200
 vim.o.clipboard = "unnamed,unnamedplus"  -- Copy-paste between vim and everything else
 
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
+
 -- disable space
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
