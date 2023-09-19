@@ -59,4 +59,3 @@ keymap.set('n', '<leader>fr', builtin.registers, { desc = "[F]ind [R]egisters" }
 -- vim.api.nvim_set_keymap("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>", { noremap = true }) -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
 -- vim.api.nvim_set_keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", { noremap = true }) -- list git branches (use <cr> to checkout) ["gb" for git branch]
 -- vim.api.nvim_set_keymap("n", "<leader>gs", "<cmd>Telescope git_status<cr>", { noremap = true }) -- list current changes per file with diff preview ["gs" for git status]
-

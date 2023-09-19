@@ -80,7 +80,7 @@ return require('packer').startup(function()
   use {'kaicataldo/material.vim', branch = 'main'}
   use {
     "cshuaimin/ssr.nvim",
-    module = "ssr",
+    -- module = "ssr",
     -- Calling setup is optional.
     config = function()
         require("ssr").setup {
@@ -97,6 +97,13 @@ return require('packer').startup(function()
                 replace_all = "<leader><cr>",
             },
         }
+    end
+  }
+  use {
+    'rasulomaroff/telepath.nvim',
+    requires = { 'ggandor/leap.nvim' },
+    config = function()
+        require('telepath').use_default_mappings()
     end
   }
 end)

@@ -26,7 +26,7 @@ vim.o.termguicolors = true
 -- vim.o.colorcolumn = false
 vim.o.showmode = false
 -- vim.o.showtabline = 2
-vim.o.showtabline = 0  -- never show the tabline
+vim.o.showtabline = 1  -- never show the tabline
 vim.o.signcolumn = 'yes'
 vim.o.mouse = 'a'
 vim.o.laststatus = 0  -- remove status line
@@ -38,6 +38,7 @@ vim.o.writebackup = false
 vim.o.updatetime = 200
 vim.o.clipboard = "unnamed,unnamedplus"  -- Copy-paste between vim and everything else
 
+-- disable space
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- vertical split
@@ -45,7 +46,6 @@ vim.api.nvim_set_keymap('n', 'vs', ':vs<CR>', { noremap = true })
 
 -- horizontal split (s is already taken by leap)
 vim.api.nvim_set_keymap('n', 'hs', ':sp<CR>', { noremap = true })
--- vim.api.nvim_set_keymap('n', 'sp', ':sp<CR>', { noremap = true })
 
 -- move between windows
 vim.api.nvim_set_keymap('n', '<C-L>', '<C-W><C-L>', { noremap = true })
@@ -172,10 +172,6 @@ vim.api.nvim_create_autocmd("BufReadPre", {
   end,
 })
 
--- require("printer").setup({
---   keymap = "gp"
--- })
-
 -- configure wilder to use fuzzy searching
 local wilder = require("wilder")
 wilder.set_option('pipeline', {
@@ -211,10 +207,10 @@ require("nvim-treesitter.configs").setup {
     default_lazy = true,
 
     -- Determine the fallback method used when we cannot calculate indent by tree-sitter
-    --   "auto": fallback to vim auto indent
+    --   "auto": fallback to vim auto indend
     --   "asis": use current indent as-is
     --   "cindent": see `:h cindent()`
-    -- Or a custom function return the final indent result.
+    -- Or a custom function redurn the final indent result.
     default_fallback = "auto"
   },
   indent = {
@@ -236,10 +232,11 @@ vim.api.nvim_set_keymap('n', '<leader>dc', ':Pydocstring<CR>', { noremap = true 
 -- vim.api.nvim_set_keymap('n', '<C-n>', ":vm-find-word<CR>", { noremap = true })
 
 -- structural search
-vim.keymap.set({ "n", "x" }, "<leader>xr", function() require("ssr").open() end)
+vim.keymap.set({ "n", "x" }, "<leader>z", function() require("ssr").open() end)
 
 
 require'treesitter-context'.setup{
   multiline_threshold = 1, -- Maximum number of lines to show for a single context
 }
 
+require('telepath').use_default_mappings()
