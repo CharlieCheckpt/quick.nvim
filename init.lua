@@ -1,4 +1,5 @@
 require('basics')
+require('keymaps')
 require('colors')
 require('config/telescope')
 require('config/fugitive')
