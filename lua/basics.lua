@@ -161,4 +161,6 @@ require'treesitter-context'.setup{
   multiline_threshold = 1, -- Maximum number of lines to show for a single context
 }
 
-require("ibl").setup()
+require("ibl").setup{ 
+    scope = { show_start = false },
+}
