@@ -160,3 +160,5 @@ vim.g.pydocstring_formatter = "google"
 require'treesitter-context'.setup{
   multiline_threshold = 1, -- Maximum number of lines to show for a single context
 }
+
+require("ibl").setup()
