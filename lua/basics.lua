@@ -18,7 +18,7 @@ vim.o.swapfile = false
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.scrolloff = 10  -- how window move when you move vertically
-vim.o.sidescrolloff = 50  -- how window move when you move horizontally
+vim.o.sidescrolloff = 10  -- how window move when you move horizontally
 vim.o.errorbells = false
 -- vim.o.shiftwidth = 2
 vim.o.numberwidth = 4
@@ -31,7 +31,7 @@ vim.o.signcolumn = 'yes'
 vim.o.mouse = 'a'
 vim.o.laststatus = 0  -- remove status line
 vim.o.autoindent = true
-vim.o.smartindent = true
+vim.o.smartindent = false
 vim.o.hidden = true
 vim.o.backup = false
 vim.o.writebackup = false
@@ -161,3 +161,9 @@ require'treesitter-context'.setup{
   multiline_threshold = 1, -- Maximum number of lines to show for a single context
 }
 
+require("ibl").setup{ 
+    scope = {
+        show_start = false,
+        show_end = false,
+    },
+}

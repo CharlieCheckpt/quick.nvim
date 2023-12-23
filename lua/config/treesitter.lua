@@ -10,9 +10,9 @@ vim.api.nvim_set_keymap('n', '<leader>e', ":NvimTreeFindFile<CR>", { noremap = f
 require('nvim-treesitter.configs').setup {
   ensure_installed = "python",
   ignore_install = { "phpdoc" },
-  context_commentstring = {
-    enable = true
-  },
+  -- context_commentstring = {
+  --   enable = true
+  -- },
   highlight = {
     enable = true,
     disable = { "lua", "yaml"},
