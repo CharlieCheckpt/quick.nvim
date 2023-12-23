@@ -107,4 +107,6 @@ return require('packer').startup(function()
         require('telepath').use_default_mappings()
     end
   }
+  use 'ThePrimeagen/harpoon'
+
 end)
