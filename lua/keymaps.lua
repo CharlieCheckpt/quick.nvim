@@ -72,3 +72,11 @@ vim.api.nvim_set_keymap('n', '<leader>dc', ':Pydocstring<CR>', { noremap = true 
 vim.keymap.set({ "n", "x" }, "<leader>z", function() require("ssr").open() end)
 
 require('telepath').use_default_mappings()
+
+vim.keymap.set({ "n", "i" }, "<leader>a", ":lua require('harpoon.mark').add_file()<CR>", { noremap = true })
+vim.keymap.set({ "n", "i" }, "<leader>x", ":lua require('harpoon.mark').rm_file()<CR>", { noremap = true })
+vim.keymap.set({ "n", "i" }, "<leader>o", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", { noremap = true })
+vim.keymap.set({ "n", "i" }, "<leader>&", ":lua require('harpoon.ui').nav_file(1)<CR>", { noremap = true })
+vim.keymap.set({ "n", "i" }, "<leader>é", ":lua require('harpoon.ui').nav_file(2)<CR>", { noremap = true })
+vim.keymap.set({ "n", "i" }, "<leader>\"", ":lua require('harpoon.ui').nav_file(3)<CR>", { noremap = true })
+
