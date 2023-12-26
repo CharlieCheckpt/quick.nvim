@@ -13,7 +13,7 @@ vim.g.sonokai_transparent_background = 1
 
 -- vim.g.sonokai_spell_foreground = "colored"
 -- vim.g.sonokai_enable_italic = 1
--- vim.cmd([[colorscheme sonokai]])
+vim.cmd([[colorscheme sonokai]])
 
 -- embark
 -- vim.cmd([[colorscheme embark]])
@@ -47,4 +47,4 @@ require("monokai-pro").setup({
         },
     }
 })
-vim.cmd([[colorscheme monokai-pro]])
+-- vim.cmd([[colorscheme monokai-pro]])
