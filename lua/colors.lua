@@ -13,7 +13,7 @@ vim.g.sonokai_transparent_background = 1
 
 -- vim.g.sonokai_spell_foreground = "colored"
 -- vim.g.sonokai_enable_italic = 1
-vim.cmd([[colorscheme sonokai]])
+-- vim.cmd([[colorscheme sonokai]])
 
 -- embark
 -- vim.cmd([[colorscheme embark]])
@@ -35,3 +35,16 @@ vim.cmd([[colorscheme sonokai]])
 --         }
 --     }
 -- })
+require("monokai-pro").setup({ 
+    filter = "octagon", 
+    italic_comments = true, 
+    diagnostic = { background = true },
+    plugins = {
+        bufferline = { underline_selected = false },
+        indent_blankline = {
+            context_highlight = "default", -- default | pro
+            context_start_underline = true,
+        },
+    }
+})
+vim.cmd([[colorscheme monokai-pro]])
