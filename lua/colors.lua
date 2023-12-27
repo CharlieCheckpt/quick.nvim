@@ -25,8 +25,8 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     local set_hl = vim.fn['sonokai#highlight']
 
     set_hl('Visual', palette.none, palette.grey_dim)
-    set_hl('IncSearch', palette.bg0, palette.yellow)
-    set_hl('Search', palette.none, palette.diff_yellow)
+    -- set_hl('IncSearch', palette.bg0, palette.yellow)
+    -- set_hl('Search', palette.none, palette.diff_yellow)
   end
 })
 
