@@ -162,7 +162,7 @@ require'treesitter-context'.setup{
 }
 
 require("ibl").setup{ 
-    indent = { highlight = 'Comment' },
+    -- indent = { highlight = 'Comment' },
     scope = {
         show_start = false,
         show_end = false,

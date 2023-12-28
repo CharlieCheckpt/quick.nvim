@@ -2,7 +2,7 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 require("nvim-tree").setup()
-vim.api.nvim_set_keymap('n', '<C-e>', ":NvimTreeToggle<CR>", { noremap = false })
+vim.api.nvim_set_keymap('n', '<C-x>', ":NvimTreeToggle<CR>", { noremap = false })
 vim.api.nvim_set_keymap('n', '<leader>e', ":NvimTreeFindFile<CR>", { noremap = false })
 -- vim.api.nvim_set_keymap('n', '<C-e>', ":NvimTreeClose<CR>", { noremap = true })
 -- vim.api.nvim_set_hl(0, "@foo.bar", { link = "Identifier" })

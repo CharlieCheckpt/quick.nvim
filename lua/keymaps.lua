@@ -73,6 +73,7 @@ vim.keymap.set({ "n", "x" }, "<leader>z", function() require("ssr").open() end)
 
 require('telepath').use_default_mappings()
 
+-- harpoon keymaps
 vim.keymap.set({ "n" }, "<leader>a", ":lua require('harpoon.mark').add_file()<CR>", { noremap = true })
 vim.keymap.set({ "n" }, "<leader>x", ":lua require('harpoon.mark').rm_file()<CR>", { noremap = true })
 vim.keymap.set({ "n" }, "<leader>o", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", { noremap = true })
@@ -80,3 +81,6 @@ vim.keymap.set({ "n" }, "<leader>&", ":lua require('harpoon.ui').nav_file(1)<CR>
 vim.keymap.set({ "n" }, "<leader>é", ":lua require('harpoon.ui').nav_file(2)<CR>", { noremap = true })
 vim.keymap.set({ "n" }, "<leader>\"", ":lua require('harpoon.ui').nav_file(3)<CR>", { noremap = true })
 
+-- nvim-tree keymaps
+vim.api.nvim_set_keymap('n', '<C-x>', ":NvimTreeToggle<CR>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>e', ":NvimTreeFindFile<CR>", { noremap = true })
