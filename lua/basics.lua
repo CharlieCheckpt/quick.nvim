@@ -149,7 +149,7 @@ require("nvim-treesitter.configs").setup {
     default_fallback = "auto"
   },
   indent = {
-    enable = true -- disable builtin indent module
+    enable = true, -- disable builtin indent module
     disable = { "python" }
   }
 }
