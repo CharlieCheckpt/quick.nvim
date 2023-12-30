@@ -110,5 +110,6 @@ return require('packer').startup(function()
     end
   }
   use 'ThePrimeagen/harpoon'
+  use 'Vimjas/vim-python-pep8-indent'
 
 end)

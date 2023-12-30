@@ -7,7 +7,7 @@ vim.o.incsearch = true
 -- vim.o.tabstop = 2
 vim.o.tabstop = 4 -- Make tabs equals to 4 columns
 vim.o.softtabstop = 4 -- Make tabs equals to 4 columns
-vim.o.shiftwidth = 4 -- Make a indentation equals to 4 columns
+vim.o.shiftwidth = 2 -- Make a indentation equals to 4 columns
 vim.o.shiftround = true -- Indentation to the closest tab
 vim.o.expandtab = true -- Convert tab to spaces
 vim.o.cursorline = true
@@ -30,7 +30,7 @@ vim.o.showtabline = 1  -- never show the tabline
 vim.o.signcolumn = 'yes'
 vim.o.mouse = 'a'
 vim.o.laststatus = 0  -- remove status line
-vim.o.autoindent = true
+vim.o.autoindent = false
 vim.o.smartindent = false
 vim.o.hidden = true
 vim.o.backup = false
@@ -149,7 +149,8 @@ require("nvim-treesitter.configs").setup {
     default_fallback = "auto"
   },
   indent = {
-    enable = false -- disable builtin indent module
+    enable = true -- disable builtin indent module
+    disable = { "python" }
   }
 }
 
