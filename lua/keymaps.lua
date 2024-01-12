@@ -69,7 +69,7 @@ require('leap').set_default_keymaps()
 vim.api.nvim_set_keymap('n', '<leader>dc', ':Pydocstring<CR>', { noremap = true })
 
 -- structural search
-vim.keymap.set({ "n", "x" }, "<leader>z", function() require("ssr").open() end)
+-- vim.keymap.set({ "n", "x" }, "<leader>z", function() require("ssr").open() end)
 
 require('telepath').use_default_mappings()
 
@@ -84,3 +84,5 @@ vim.keymap.set({ "n" }, "<leader>\"", ":lua require('harpoon.ui').nav_file(3)<CR
 -- nvim-tree keymaps
 vim.api.nvim_set_keymap('n', '<C-x>', ":NvimTreeToggle<CR>", { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>e', ":NvimTreeFindFile<CR>", { noremap = true })
+
+vim.keymap.set("n", "<leader>z", ":ZenMode<CR>", { noremap = true })
