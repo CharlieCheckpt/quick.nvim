@@ -169,3 +169,9 @@ require("ibl").setup{
         show_end = false,
     },
 }
+
+require("zen-mode").setup {
+  window = {
+    width = 200,
+  }
+}
