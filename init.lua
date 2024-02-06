@@ -18,19 +18,11 @@ return require('packer').startup(function()
   use {'neoclide/coc.nvim', branch = 'release'}
 
   -- color themes
-  use 'Yazeed1s/minimal.nvim'
   use 'folke/tokyonight.nvim'
-  use 'Yazeed1s/oh-lucy.nvim'
   use 'sainnhe/sonokai'
   use "EdenEast/nightfox.nvim" -- Packer
   use("loctvl842/monokai-pro.nvim")
   use { "catppuccin/nvim", as = "catppuccin" }
-  use { 'embark-theme/vim', as = 'embark' }
-  use 'B4mbus/oxocarbon-lua.nvim'
-  use {
-      'ramojus/mellifluous.nvim',
-      requires = {'rktjmp/lush.nvim'}
-  }
 
   use 'nvim-treesitter/nvim-treesitter' 
   use 'nvim-treesitter/nvim-treesitter-context'
