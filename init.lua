@@ -7,6 +7,20 @@ require('config/coc')
 require('config/treesitter')
 require('config/better_escape')
 
+-- Automatically set up packer (see https://github.com/wbthomason/packer.nvim?tab=readme-ov-file#bootstrapping)
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
+
+local packer_bootstrap = ensure_packer()
+
 -- command line completion
 local wilder = require('wilder')
 wilder.setup({modes = {':', '/', '?'}})
@@ -59,7 +73,6 @@ return require('packer').startup(function()
     -- requires = {
     --   'nvim-tree/nvim-web-devicons', -- optional, for file icons
     -- },
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
   -- command line completion 
   use {
@@ -104,5 +117,16 @@ return require('packer').startup(function()
   use 'ThePrimeagen/harpoon'
   use 'Vimjas/vim-python-pep8-indent'
   use "folke/zen-mode.nvim"
+
+  use({
+      "stevearc/aerial.nvim",
+      config = function()
+        require("aerial").setup()
+      end,
+    })
+
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 
 end)

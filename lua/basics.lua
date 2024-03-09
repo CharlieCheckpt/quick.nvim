@@ -40,6 +40,7 @@ vim.o.clipboard = "unnamed,unnamedplus"  -- Copy-paste between vim and everythin
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
+vim.api.nvim_exec('language en_US', true)  -- set language to english
 
 -- Highlight on Yank 
 -- taken from https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
@@ -175,3 +176,12 @@ require("zen-mode").setup {
     width = 200,
   }
 }
+
+require("aerial").setup({
+  -- optionally use on_attach to set keymaps when aerial has attached to a buffer
+  on_attach = function(bufnr)
+    -- Jump forwards/backwards with '{' and '}'
+    vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+    vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+  end,
+})

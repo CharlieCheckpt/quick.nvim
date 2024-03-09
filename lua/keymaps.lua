@@ -86,3 +86,7 @@ vim.api.nvim_set_keymap('n', '<C-x>', ":NvimTreeToggle<CR>", { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>e', ":NvimTreeFindFile<CR>", { noremap = true })
 
 vim.keymap.set("n", "<leader>z", ":ZenMode<CR>", { noremap = true })
+
+-- You probably also want to set a keymap to toggle aerial
+vim.keymap.set("n", "<leader>m", "<cmd>AerialToggle!<CR>", { noremap = true })
+
