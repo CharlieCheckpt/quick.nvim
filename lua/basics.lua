@@ -7,7 +7,7 @@ vim.o.incsearch = true
 -- vim.o.tabstop = 2
 vim.o.tabstop = 2 -- Make tabs equals to 4 columns
 vim.o.softtabstop = 4 -- Make tabs equals to 4 columns
-vim.o.shiftwidth = 2 -- Make a indentation equals to 4 columns
+vim.o.shiftwidth = 2 -- Make a indentation equals to 2 columns
 vim.o.shiftround = true -- Indentation to the closest tab
 vim.o.expandtab = true -- Convert tab to spaces
 vim.o.cursorline = true
@@ -37,6 +37,9 @@ vim.o.backup = false
 vim.o.writebackup = false
 vim.o.updatetime = 200
 vim.o.clipboard = "unnamed,unnamedplus"  -- Copy-paste between vim and everything else
+vim.g.pyindent_open_paren = 0
+vim.g.pyindent_close_paren = 0
+
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -67,7 +70,7 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
             return
         end
 
-        vim.wo.winbar = "%{%v:lua.require'config.winbar'.statusline()%}"
+        vim.wo.winbar = "%{%v:lua.require'config.winbar'.statusline()%}-%{FugitiveStatusline()}"
     end,
 })
 
@@ -185,3 +188,4 @@ require("aerial").setup({
     vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
   end,
 })
+
