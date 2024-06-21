@@ -107,13 +107,6 @@ return require('packer').startup(function()
         }
     end
   }
-  use {
-    'rasulomaroff/telepath.nvim',
-    requires = { 'ggandor/leap.nvim' },
-    config = function()
-        require('telepath').use_default_mappings()
-    end
-  }
   use 'ThePrimeagen/harpoon'
   -- use 'Vimjas/vim-python-pep8-indent'
   use "folke/zen-mode.nvim"

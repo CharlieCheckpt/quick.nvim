@@ -24,6 +24,7 @@ vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {noremap = true, silent = t
 -- easier saving
 vim.api.nvim_set_keymap("i", "<C-w>", "<cmd>:w!<cr>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>w", ":w!<cr>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>wq", ":wq<cr>", {noremap = true, silent = true})
 
 -- Replace current selection with what is in the registry
 vim.api.nvim_set_keymap("v", "<leader>p", '"_dP', { noremap = true })
@@ -71,8 +72,6 @@ vim.api.nvim_set_keymap('n', '<leader>dc', ':Pydocstring<CR>', { noremap = true 
 -- structural search
 -- vim.keymap.set({ "n", "x" }, "<leader>z", function() require("ssr").open() end)
 
-require('telepath').use_default_mappings()
-
 -- harpoon keymaps
 vim.keymap.set({ "n" }, "<leader>a", ":lua require('harpoon.mark').add_file()<CR>", { noremap = true })
 vim.keymap.set({ "n" }, "<leader>x", ":lua require('harpoon.mark').rm_file()<CR>", { noremap = true })
@@ -88,5 +87,8 @@ vim.api.nvim_set_keymap('n', '<leader>e', ":NvimTreeFindFile<CR>", { noremap = t
 vim.keymap.set("n", "<leader>z", ":ZenMode<CR>", { noremap = true })
 
 -- You probably also want to set a keymap to toggle aerial
-vim.keymap.set("n", "<leader>m", "<cmd>AerialToggle!<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>m", "<cmd>AerialToggle<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>M", "<cmd>AerialToggle!<CR>", { noremap = true })  -- stay in current window
 
+
+-- vim.keymap.set('n', '<leader>ta', function() vim.opt.scrolloff = 999 - vim.o.scrolloff end)

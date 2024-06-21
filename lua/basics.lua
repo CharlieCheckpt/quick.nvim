@@ -39,7 +39,7 @@ vim.o.updatetime = 200
 vim.o.clipboard = "unnamed,unnamedplus"  -- Copy-paste between vim and everything else
 vim.g.pyindent_open_paren = 0
 vim.g.pyindent_close_paren = 0
-
+-- vim.opt.shell = "/bin/bash"
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -56,7 +56,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- Set the winbar with file full path
+-- Set the winbar with file full path and git branch
 vim.api.nvim_create_autocmd('BufWinEnter', {
     pattern = '*',
     callback = function()
