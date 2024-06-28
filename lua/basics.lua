@@ -159,8 +159,8 @@ require("nvim-treesitter.configs").setup {
 }
 
 -- docstring
-vim.g.pydocstring_doq_path =  "/mnt/disks/sdb/usr_data/DATA_CSAILLARD/envs/venv/bin/doq"
-vim.g.pydocstring_formatter = "google"
+-- vim.g.pydocstring_doq_path =  "/mnt/disks/sdb/usr_data/DATA_CSAILLARD/envs/venv/bin/doq"
+-- vim.g.pydocstring_formatter = "google"
 
 require'treesitter-context'.setup{
   multiline_threshold = 1, -- Maximum number of lines to show for a single context
@@ -189,3 +189,4 @@ require("aerial").setup({
   end,
 })
 
+vim.g.python3_host_prog = "/Users/csaillard/.pyenv/versions/default_venv/bin/python"
