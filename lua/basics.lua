@@ -70,7 +70,8 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
             return
         end
 
-        vim.wo.winbar = "%{%v:lua.require'config.winbar'.statusline()%}-%{FugitiveStatusline()}"
+        -- set winbar: file path and git branch
+        vim.wo.winbar = "%{%v:lua.require'config.winbar'.statusline()%}- [%{fugitive#Head()}]"
     end,
 })
 
@@ -190,3 +191,5 @@ require("aerial").setup({
 })
 
 vim.g.python3_host_prog = "/Users/csaillard/.pyenv/versions/default_venv/bin/python"
+
+require("tint").setup()

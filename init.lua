@@ -115,6 +115,9 @@ return require('packer').startup(function()
         require("aerial").setup()
       end,
     })
+  use ({
+    "levouh/tint.nvim",
+  })
 
   if packer_bootstrap then
     require('packer').sync()
